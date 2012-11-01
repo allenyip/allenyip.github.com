@@ -1,7 +1,7 @@
----
+ï»¿---
 layout: default
 title: test blog from github
 ---
 
 hello world!
-ÖĞÎÄ²âÊÔ
+ ä½ å¥½ï¼Œä¸–ç•Œï¼
