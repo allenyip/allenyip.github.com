@@ -1,7 +1,0 @@
----
-layout: default
-title: test blog from github
----
-
-hello world!
- ÄãºÃ£¬ÊÀ½ç£¡
