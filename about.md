@@ -1,18 +1,18 @@
 ---
 
-title: About Me
+title: 关于
 layout: default
 
 ---
-I am a
->Dreamer | Googler | Coder 
+我是一个
+>空想家 | 谷歌粉 | 程序员 
 
-Interested in
->Sports | Music | Internet 
+喜欢
+>运动 | 音乐 | 网络 
 
-Big fan of
->David Villa | 黄家驹 | Jack Dorsey 
+欣赏
+>比利亚 | 黄家驹 | 杰克多西 
 
-Find me on
->[Twitter](https://twitter.com/allenyipp) | [Weibo](http://weibo.com/boring) | [Github](https://github.com/allenyip) 
+我的
+>[推特](https://twitter.com/allenyipp) | [微博](http://weibo.com/boring) | [Github](https://github.com/allenyip) 
 
