@@ -3,7 +3,7 @@ layout: nil
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
- <title>Allen's Blog</title>
+ <title>Allen Yip</title>
  <link href="http://allenyip.github.com/atom.xml" rel="self"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
  <id>http://allenyip.github.com/</id>
