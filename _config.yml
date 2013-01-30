@@ -4,3 +4,10 @@ auto: true
 server: true
 
 paginate: 20
+
+analytics :
+   provider : google
+   google :
+       tracking_id : 'UA-38088309-1'                                               
+   getclicky :
+     site_id :
