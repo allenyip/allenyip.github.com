@@ -26,6 +26,7 @@ Google解决后发现原来是网站的「关于」文件未使用CCYY-MM-DD-tit
 * 不要熬夜了赶快去睡觉吧：）
 
 顺便附上Github坑爹的BUG信息。
+
 ![BUG Email][4]
 
 [1]:http://github.com
