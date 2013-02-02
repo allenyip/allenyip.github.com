@@ -27,34 +27,6 @@ Google解决后发现原来是网站的「关于」文件未使用CCYY-MM-DD-tit
 * 不要偷懒多写写文章。
 * 不要熬夜了赶快去睡觉吧：）
 
-```ruby
-def ackermann(m, n)
-    if m == 0
-        n + 1
-    elsif n == 0
-        ackermann(m - 1, 1)
-    else
-        ackermann(m - 1, ackermann(m, n - 1))
-    end
-end
-```
-
-<pre><code class="ruby">def ackermann(m, n)
-    if m == 0
-        n + 1
-    elsif n == 0
-        ackermann(m - 1, 1)
-    else
-        ackermann(m - 1, ackermann(m, n - 1))
-    end
-end
-</code></pre>
-
-    def ackermann(m,n)
-        aaa
-        aaa
-    end
-
 [1]:http://i.imgur.com/dlD2Ox3.png
 [2]:http://github.com
 [3]:http://tom.preston-werner.com/
