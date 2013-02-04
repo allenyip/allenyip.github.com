@@ -5,7 +5,7 @@ title: Prolog, 逻辑编程和编程范式
 layout: post
 
 ---
-在人工智能课上做了一个介绍Prolog语言的课题，也因此才有机会去研究困惑我许久的逻辑编程到底是什么东西。（没有压力就没有动力，我是一头懒惰的猪。）本来这篇文章只想谈谈Prolog语言，没想到从前言开始介绍编程范式之后越写越多，于是文章标题从「谈谈Prolog」变成「Prolog和逻辑编程」，最后成了「Prolog，逻辑编程和编程范式」。
+在人工智能课上做了一个介绍Prolog语言的课题，也因此才有机会去研究困惑我许久的逻辑编程到底是什么东西。（没有压力就没有动力，我是一头懒惰的猪。）本来这篇文章只想谈谈Prolog语言，没想到越写越多，最后成了「Prolog, 逻辑编程和编程范式」。
 
 ---
 
@@ -62,7 +62,7 @@ layout: post
 
 逻辑编程通过设定规则而非设定步骤来解决问题，通过事实和规则的匹配得到结果。事实上，逻辑编程的实现机制十分简单，纯逻辑式语言能实现的功能绝大多数复合型语言都可以，然而在执行效率和运算成本上，逻辑编程语言更具优势。下面以Prolog语言为例进行介绍。
 
-##**Prolog**
+##**PROLOG**
 
 Prolog(Programming in Logic)最早由法国马赛大学的Alain Colmerauer等人开发并与1972年诞生，至今仍被广泛运用于自然语言处理，专家系统等人工智能领域。我不喜欢重铸轮子，有关该语言的学习请猛戳Patrick Blackburn等人写的[Learn Prolog Now!][7]，开发工具推荐强烈推荐开源小巧的[SWI-Prolog][8]。
 
@@ -90,6 +90,7 @@ father(yeye,baba).
 father(baba,wo).
 mother(nainai,baba).
 mother(mama,wo).
+
 /* 规则 */
 grandfather(X,Y):-father(X,Z),father(Z,Y).
 grandmother(X,Y):-mother(X,Z),father(Z,Y).
@@ -103,6 +104,8 @@ ancestor(X,Y):-parent(X,Z),ancestor(Z,Y).
 结果或查询语句以"?-"开头如下所示：
 
 ![Prolog Query][10]
+
+Prolog还可以应用于自然语言处理和专家系统中，其主要的机制与此几乎一样。
 
 [1]:http://www.info.ucl.ac.be/~pvr/paradigmsDIAGRAMeng108.pdf
 [2]:http://i.imgur.com/oACpKEi.png
