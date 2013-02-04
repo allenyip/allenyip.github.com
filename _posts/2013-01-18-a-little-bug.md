@@ -13,11 +13,11 @@ layout: post
 * Github的Jekyll服务器更新了。——我却没收到邮件
 * 我想在博客里加入Google Analytics(GA)服务。——尽管访问量为零
 
-于是，当我加入GA代码同时发布新文章之后收到了第一封BUG邮件，机智如我想当然以为是GA服务出了问题，于是改代码改配置忙活半天，BUG依旧；然后我把GA代码移除提交，仍旧无用；最后迫不得已在本地输入jekyll --safe调试，果然报了如下错误：
+于是，当我加入GA代码同时发布新文章之后收到了第一封BUG邮件，机智如我想当然以为是GA服务出了问题，于是改代码改配置忙活半天，BUG依旧；然后我把GA代码移除提交，仍旧无用；最后迫不得已在本地输入`jekyll --safe`调试，果然报了如下错误：
 
 >Liquid Exception: undefined method 'xmlschema' for nil:NilClass in default
 
-Google解决后发现原来是网站的「关于」文件未使用CCYY-MM-DD-title命名，在传递日期时出错且这个错误在新版的Jekyll下是不允许的，换文件名显然不可行于是我干脆把日期删掉了，之后加入GA顺利提交。
+Google解决后发现原来是网站的「[关于][4]」文件未使用CCYY-MM-DD-title命名，在传递日期时出错且这个错误在新版的Jekyll下是不允许的，换文件名显然不可行于是我干脆把日期删掉了，之后加入GA顺利提交。
 
 不服输地DEBUG到深夜后我写下这篇文章顺便告诉自己：
 
@@ -25,11 +25,12 @@ Google解决后发现原来是网站的「关于」文件未使用CCYY-MM-DD-tit
 * 不要偷懒多写写文章。
 * 不要熬夜了赶快去睡觉吧：）
 
-顺便附上Github坑爹的BUG信息。
+顺便附上Github坑爹的BUG信息：
 
-![BUG Email][4]
+![BUG Email][5]
 
 [1]:http://github.com
 [2]:http://tom.preston-werner.com/
 [3]:http://tom.preston-werner.com/2008/11/17/blogging-like-a-hacker.html
-[4]:http://i.imgur.com/dlD2Ox3.png
+[4]:http://allenyip.com/about
+[5]:http://i.imgur.com/dlD2Ox3.png
