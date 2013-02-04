@@ -105,7 +105,9 @@ ancestor(X,Y):-parent(X,Z),ancestor(Z,Y).
 
 ![Prolog Query][10]
 
-Prolog还可以应用于自然语言处理和专家系统中，其主要的机制与此几乎一样。
+Prolog还可以应用于自然语言处理和专家系统中，其主要的机制与此几乎一样，PPT附上。
+
+<iframe src="http://www.slideshare.net/slideshow/embed_code/16338774" width="597" height="486" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px" allowfullscreen webkitallowfullscreen mozallowfullscreen> </iframe> <div style="margin-bottom:5px"> <strong> <a href="http://www.slideshare.net/allenyip/prolog-16338774" title="Prolog" target="_blank">Prolog</a> </strong> from <strong><a href="http://www.slideshare.net/allenyip" target="_blank">allenyip</a></strong> </div>
 
 [1]:http://www.info.ucl.ac.be/~pvr/paradigmsDIAGRAMeng108.pdf
 [2]:http://i.imgur.com/oACpKEi.png
