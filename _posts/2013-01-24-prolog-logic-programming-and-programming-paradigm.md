@@ -1,6 +1,6 @@
 ---
 
-title: Prolog，逻辑编程和编程范式
+title: Prolog, 逻辑编程和编程范式
 
 layout: post
 
@@ -15,7 +15,7 @@ layout: post
 
 >编程范式，指的是计算机编程的基本风格或典范模式。
 
-得，这种方法论世界观的东西向来不合我胃口，于是我又找到了Peter Van Roy制作的编程范式图[1]：
+得，这种方法论世界观的东西向来不合我胃口，于是我又找到了Peter Van Roy制作的[编程范式图][1]：
 
 ![Principal Programming Paradigms][2]
 
@@ -78,7 +78,7 @@ move(N,X,Y,Z):-N>1,M is N-1,move(M,X,Z,Y),move(1,X,Y,\_),move(M,Z,Y,X).
 
 ![Family Diagram][9]
 
-在`family.pl`中定义的事实和规则如下：
+在family.pl中定义的事实和规则如下：
 <pre><code class="prolog">
 /* 事实 */
 male(baba).
@@ -100,12 +100,12 @@ ancestor(X,Y):-parent(X,Y).
 ancestor(X,Y):-parent(X,Z),ancestor(Z,Y).
 </code></pre>
 
-结果或查询语句以`?-`开头如下所示：
+结果或查询语句以"?-"开头如下所示：
 
 ![Prolog Query][10]
 
 [1]:http://www.info.ucl.ac.be/~pvr/paradigmsDIAGRAMeng108.pdf
-[2]:http://i.imgur.com/JtkfLiq.png
+[2]:http://i.imgur.com/oACpKEi.png
 [3]:http://en.wikipedia.org/wiki/Category:Programming_paradigms
 [4]:http://en.wikipedia.org/wiki/Computational_model
 [5]:http://en.wikipedia.org/wiki/John_von_Neumann
