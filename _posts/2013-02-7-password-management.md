@@ -1,6 +1,6 @@
 ---
 
-title: 重设密码
+title: 密码重置
 
 layout: post
 
