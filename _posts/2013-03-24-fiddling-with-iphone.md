@@ -63,6 +63,13 @@ layout: post
 ![Screen 2][10]
 ![Screen 3][11]
 
+
+UPDATE ON 3/31：还是别卖萌了，新的壁纸如下，改自Dribbble上[Jimsy]的作品。
+
+![LockScreen Wallpaper New][13]
+![Screen 2 New][14]
+![Screen 3 New][15]
+
 PS: 审美这种东西因人因时而异，以上所有仅代表个人当前观点。
 
 --EOF--
@@ -78,3 +85,7 @@ PS: 审美这种东西因人因时而异，以上所有仅代表个人当前观�
 [9]:http://i.imgur.com/BTbY2qc.png
 [10]:http://i.imgur.com/Yq1d44U.png
 [11]:http://i.imgur.com/CHZlX4R.png
+[12]:http://dribbble.com/shots/47106-iPhone4-Grid-Wallpaper
+[13]:http://i.imgur.com/rDbWJo0.png
+[14]:http://i.imgur.com/4rKOPp1.jpg
+[15]:http://i.imgur.com/YBO6Byp.jpg
