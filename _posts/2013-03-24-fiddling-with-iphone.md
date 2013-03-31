@@ -56,7 +56,7 @@ layout: post
 
 ~~我现在的锁屏壁纸和主屏壁纸由新浪微博的[cha研][6]制作，可以到他的[微盘][7]里下载。（卖萌之心不死啊...~~
 
-UPDATE ON 3/31：还是别卖萌了，新的壁纸如下，改自Dribbble上[Jimsy]的作品。
+UPDATE ON 3/31：还是别卖萌了，新的壁纸如下，改自Dribbble上[Jimsy][12]的作品。
 
 ![LockScreen Wallpaper New][13]
 ![Screen 2 New][14]
