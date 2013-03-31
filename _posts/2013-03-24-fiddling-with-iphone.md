@@ -58,9 +58,9 @@ layout: post
 
 UPDATE ON 3/31：还是别卖萌了，新的壁纸如下，改自Dribbble上[Jimsy][12]的作品。
 
-![LockScreen Wallpaper New][16]
-![Screen 2 New][17]
-![Screen 3 New][18]
+![LockScreen Wallpaper New][13]
+![Screen 2 New][14]
+![Screen 3 New][15]
 
 PS: 审美这种东西因人因时而异，以上所有仅代表个人当前观点。
 
