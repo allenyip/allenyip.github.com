@@ -5,7 +5,7 @@ title: HTML5泡沫
 layout: post
 
 ---
-前段时间在实验室做了一个关于HTML5的[报告][1]，简单介绍了HTML5技术层面的几个特性。我相信大多数开发者都会喜欢上这门新技术，甚至想立刻扔掉手上的iOS/Android/WinPhone项目，写一个HTML5应用跨遍所有平台。
+前段时间在实验室做了一个关于HTML5的~~[报告][1]~~([报告][4]已于20130424更新，手机访问有惊喜。)，简单介绍了HTML5技术层面的几个特性。我相信大多数开发者都会喜欢上这门新技术，甚至想立刻扔掉手上的iOS/Android/WinPhone项目，写一个HTML5应用跨遍所有平台。
 
 但是这种想法就跟HTML5本身一样，理想丰满现实骨感，HTML5依然存在着诸多不足，成为标准也遥遥无期，发展和普及的速度似乎与高居不下的关注度不相匹配。
 
@@ -24,3 +24,4 @@ HTML5什么时候火的呢，乔布斯2010年针对Flash的这封[公开信][2]�
 [1]:http://allenyip.github.com/HTML5/template/index.html "GitHub"
 [2]:http://www.apple.com/hotnews/thoughts-on-flash/ "Apple"
 [3]:http://techcrunch.com/2012/09/11/mark-zuckerberg-our-biggest-mistake-with-mobile-was-betting-too-much-on-html5/ "TechCrunch"
+[4]:http://allenyip.github.com/HTML5/index.html
