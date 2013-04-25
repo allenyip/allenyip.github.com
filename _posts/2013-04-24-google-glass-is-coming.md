@@ -24,12 +24,15 @@ Google Glass的价格至今仍是个谜，不过就现在这个探索版1500刀�
 在刚刚结束的#ifihadglass竞赛中，机智的网友们给出了各种[天马行空](http://cs.stanford.edu/people/karpathy/glass/)的应用场景。
 
 它可以让运动变得很酷：
+
 ![ifihadglass1](https://dl.dropboxusercontent.com/u/36470533/Photos/ifihadglass1.png)
 
 还可以改善工作情绪：
+
 ![ifihadglass2](https://dl.dropboxusercontent.com/u/36470533/Photos/ifihadglass2.jpg)
 
 甚至还能提高学业成绩：
+
 ![ifihadglass3](https://dl.dropboxusercontent.com/u/36470533/Photos/ifihadglass3.jpg)
 
 （这[哥们儿](http://www.giftsy.co/ifihadglass)整理的几个场景也都挺有趣的。
@@ -41,6 +44,7 @@ Google Glass的价格至今仍是个谜，不过就现在这个探索版1500刀�
 ##**结尾**
 
 Google Glass能否带领我们进入穿戴设备的年代目前还不能确定，但可以确定的是，在它之前，科技界从未对穿戴设备如此重视，科技产品的多元化正在渐渐改变着人们的生活方式，但愿这种改变是一种进步，不会出现以下这种悲剧：
+
 ![glasstragedy](https://dl.dropboxusercontent.com/u/36470533/Photos/glasstragedy.jpg)
 
 唉，摸不到实体的意淫都是耍流氓，希望Google尽快将这玩意儿整上市吧。
