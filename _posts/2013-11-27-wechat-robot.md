@@ -12,10 +12,10 @@ layout: post
 微信公众号除了基本的群发功能外，提供了两种模式：编辑模式和开发模式。编辑模式所支持的功能少得可怜，屌丝程序员果断选择了开发模式进行开发。  
 DENGDENG，还得先申请成为开发者，填写服务器的URL和Token，正好这个项目是要放到SAE上，于是乎我直接在SAE上新建了一个应用。服务器的配置直接在微信给出的示例上修改，代码如下：
 
+```
 /**
   * wechat php test
   */
-
 //define your token  
 define("TOKEN", "YOUR_TOKEN");  
 $wechatObj = new wechatCallbackapiTest();  
@@ -53,6 +53,7 @@ class wechatCallbackapiTest
 		}
 	}
 }
+```
 
 验证通过之后即可进行开发模式的编写，但是目前订阅号还不支持自定义菜单，微信提供了测试帐号供开发者使用，填写手机号申请成功后开始在测试帐号上进行开发。
 
