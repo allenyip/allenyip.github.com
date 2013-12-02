@@ -21,13 +21,7 @@ Node如何解决这个问题？它利用JS语言的[事件驱动][2]特性，将
 
 Node采用模块架构，可以利用NPM安装模块实现各式各样的功能，使用require引入模块，如使用require('http')引入自带的HTTP模块。Node的Hello World长这样:
 
-<pre><code class="javascript">
-var http = require('http');
-http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Hello World\n');
-}).listen(1337, '127.0.0.1');
-</code></pre>
+{% gist 7749475 node1.js %}
 
 函数式编程的神奇之处就在于可以将函数作为普通参数传递，甚至是像上面的匿名函数，这种「基于事件驱动的回调」正是Node的主要工作方式，问题是，我们对于传统的B/S交互都是Server的监听线程收到连接请求后新建一个线程处理交互，而现在我们的服务器跑在一个单线程中如何处理这些异步请求？
 
@@ -35,34 +29,20 @@ http.createServer(function (req, res) {
 
 首先看一下什么是阻塞：
 
-<pre><code>
-var res = db.query("select * from T");
-output(res);
-</code></pre>
+{% gist 7749475 node2.js %}
 
 进程在执行数据库查询语句后会挂起等待查询结束才进行下一条语句，当查询过于复杂或者查询进程过多时就会造成阻塞。
 
 基于事件驱动的设计如何实现非阻塞：
 
-<pre><code>
-db.query("select... ", function (res){
-    output(res);
-});
-//do something else
-</code></pre>
+{% gist 7749475 node3.js %}
 
 进程在查询后并不挂起等待而继续执行其他语句，而查询结束后会自动调用结果处理函数。
 
 ##**DEMO**
 有关Node的教程Google老师给了很多，我照着[这本书][5]粗略学习了下，里面关于代码的组织和模块架构讲解得十分清楚。另外，JS的休眠方法很有趣：
 
-<pre><code>
-function sleep(milliSeconds) {
-	var startTime = new Date().getTime();
-    while (new Date().getTime() < startTime + milliSeconds);
-}
-sleep(10000);
-</code></pre>
+{% gist 7749475 node4.js %}
 
 写了几个小Demo，仅仅用了几行代码就实现了一个高效的文件上传，感叹Node强大的同时却无法领会各种奥妙，先暂且入个门吧，函数式编程的古怪确实让我措手不及，我想我得找几本书看看了：（
 

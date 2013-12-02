@@ -68,10 +68,7 @@ Prolog(Programming in Logic)最早由法国马赛大学的Alain Colmerauer等人
 
 Prolog简单高效，解决汉诺塔问题只需要两行代码：
 
-<pre><code class="prolog">
-move(1,X,Y,\_):-write('Move top disk from '),write(X),write(' to '), write(Y), nl.   
-move(N,X,Y,Z):-N>1,M is N-1,move(M,X,Z,Y),move(1,X,Y,\_),move(M,Z,Y,X). 
-</code></pre>
+{% gist 7749574 prolog1.pro %}
 
 举一个简单的例子演示Prolog仅有的三种语句：事实，规则和结果。
 有如下家庭关系图：
@@ -79,27 +76,8 @@ move(N,X,Y,Z):-N>1,M is N-1,move(M,X,Z,Y),move(1,X,Y,\_),move(M,Z,Y,X).
 ![Family Diagram][9]
 
 在family.pl中定义的事实和规则如下：
-<pre><code class="prolog">
-/* 事实 */
-male(baba).
-male(yeye).
-female(nainai).
-female(mama).
-male(wo).
-father(yeye,baba).
-father(baba,wo).
-mother(nainai,baba).
-mother(mama,wo).
 
-/* 规则 */
-grandfather(X,Y):-father(X,Z),father(Z,Y).
-grandmother(X,Y):-mother(X,Z),father(Z,Y).
-daughter(X,Y):-parent(X,Y),female(Y).
-son(X,Y):-parent(Y,X),male(X).
-parent(X,Y):-father(X,Y);mother(X,Y).
-ancestor(X,Y):-parent(X,Y).
-ancestor(X,Y):-parent(X,Z),ancestor(Z,Y).
-</code></pre>
+{% gist 7749574 prolog2.pro %}
 
 结果或查询语句以"?-"开头如下所示：
 
