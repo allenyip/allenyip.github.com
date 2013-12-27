@@ -47,7 +47,7 @@ Modernizr 是一个用来检测浏览器HTML5特性的开源 JavaScript 库，�
 
 针对一些不兼容的浏览器，Modernizr 可以通过 Modernizr.load() 功能加载 [shim/polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills) 脚本，具体使用方法如下：
 
-{% gist 8144258 modernizr5 %}
+{% gist 8144258 modernizr5.js %}
 
 * test：测试的特性
 * yep：浏览器支持加载的脚本
