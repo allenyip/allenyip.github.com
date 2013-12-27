@@ -21,11 +21,11 @@ Modernizr 是一个用来检测浏览器HTML5特性的开源 JavaScript 库，�
 
 与大部分 JS 库相同，Modernizr 提供了 Development 和 Production 两种版本供用户选择，Development 版本是给我这种菜鸟使用的完整包，Production 版本则是定制的无注释换行的精简包。下载之后放入项目 js 文件夹，打开页面在 <head> 元素间加入如下代码：
 
-{% gist 8144258 %}
+{% gist 8144258 modernizr1.htm %}
 
 然后在 <html> 根元素中添加一个 no-js 类：
 
-{% gist 8144269 %}
+{% gist 8144258 modernizr2.htm %}
 
 如果 Modernizr 正常运行，它会移除 no-js，添加一个 js 类；假如用户浏览器禁用 JavaScript，则 Modernizr 无法运行，html 标签就有 no-js。这是如何实现的呢，其实也不难。
 
@@ -33,13 +33,13 @@ Modernizr 是一个用来检测浏览器HTML5特性的开源 JavaScript 库，�
 
 页面在加载完 Modernizr.js 后，会自动运行生成一个包含浏览器支持特性的 Modernizr 对象，另外，它还会给 <html> 标签添加新的类(class)，以标明浏览器对 HTML5、CSS3 特性的支持情况。下面是 Chrome 31 for Windows 的界面（顺便赞一下Chrome）：
 
-{% gist 8144279 %}
+{% gist 8144258 modernizr3.htm %}
 
 ###**DEMO**
 
 以一个输入界面为例：
 
-{% gist 8144286 %}
+{% gist 8144258 modernizr4.css %}
 
 若浏览器支持 box-shadow ，<html> 中的 class 会有 boxshadow 类，否则的话会有no-boxshadow类，从而在 CSS 文件中依据浏览器特性进行输出，在整个判断或者匹配的过程中我们甚至不需要编写任何 JS 代码。
 
@@ -47,7 +47,7 @@ Modernizr 是一个用来检测浏览器HTML5特性的开源 JavaScript 库，�
 
 针对一些不兼容的浏览器，Modernizr 可以通过 Modernizr.load() 功能加载 [shim/polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills) 脚本，具体使用方法如下：
 
-{% gist 8144292 %}
+{% gist 8144258 modernizr5 %}
 
 * test：测试的特性
 * yep：浏览器支持加载的脚本
