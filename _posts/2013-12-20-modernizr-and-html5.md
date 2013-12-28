@@ -7,11 +7,11 @@ layout: post
 ---
 今天看了 [HTML5 Boilerplate](http://html5boilerplate.com/) 对 HTML5 又重燃热情，甚至妄想从明天起所有桌面/平板/手机浏览器都能完整地支持 HTML5。
 
-可惜现实永远是残酷的，去[百度](http://tongji.baidu.com/data/browser)看看上个月的浏览器市场份额吧，中国每十个网民中就有一个还在使用 IE6，这叫我如何相信。
+可惜现实永远是残酷的，特地去 [百度](http://tongji.baidu.com/data/browser) 查了下上个月的浏览器市场份额，中国每十个网民中就有一个还在使用 IE6，这叫我如何相信。
 
 ![Borwser Share](https://dl.dropboxusercontent.com/u/36470533/Photos/browser_201311.jpg)
 
-难道所有的前端开发者们都必须实现两个版本，在每次请求响应中判断浏览器的类型去做返回吗，当然不是，使用 [Modernizr](http://modernizr.com/) 吧，它~~无法解决 HTML5 的兼容问题~~（加载脚本），但提供了一个优雅方便的解决之道。
+难道所有的前端开发者们都必须实现两个版本，在每次请求响应中判断浏览器的类型去做返回吗，当然不是，使用 [Modernizr](http://modernizr.com/) 吧，它~~无法解决 HTML5 的兼容问题~~（可通过加载脚本方式解决），但提供了一个优雅方便的解决之道。
 
 ##**MODERNIZR**
 
@@ -19,11 +19,11 @@ Modernizr 是一个用来检测浏览器HTML5特性的开源 JavaScript 库，�
 
 ###**下载**
 
-与大部分 JS 库相同，Modernizr 提供了 Development 和 Production 两种版本供用户选择，Development 版本是给我这种菜鸟使用的完整包，Production 版本则是定制的无注释换行的精简包。下载之后放入项目 js 文件夹，打开页面在 <head> 元素间加入如下代码：
+与大部分 JS 库相同，Modernizr 提供了 Development 和 Production 两种版本供用户选择，Development 版本是给我这种菜鸟使用的完整包，Production 版本则是定制的无注释换行的精简包。下载之后放入项目 js 文件夹，打开页面在 `<head>` 元素间加入如下代码：
 
 {% gist 8144258 modernizr1.htm %}
 
-然后在 <html> 根元素中添加一个 no-js 类：
+然后在 `<html>` 根元素中添加一个 no-js 类：
 
 {% gist 8144258 modernizr2.htm %}
 
@@ -31,7 +31,7 @@ Modernizr 是一个用来检测浏览器HTML5特性的开源 JavaScript 库，�
 
 ###**机制**
 
-页面在加载完 Modernizr.js 后，会自动运行生成一个包含浏览器支持特性的 Modernizr 对象，另外，它还会给 <html> 标签添加新的类(class)，以标明浏览器对 HTML5、CSS3 特性的支持情况。下面是 Chrome 31 for Windows 的界面（顺便赞一下Chrome）：
+页面在加载完 Modernizr.js 后，会自动运行生成一个包含浏览器支持特性的 Modernizr 对象，另外，它还会给 `<html>` 标签添加新的类(class)，以标明浏览器对 HTML5、CSS3 特性的支持情况。下面是 Chrome 31 for Windows 的界面（顺便赞一下Chrome）：
 
 {% gist 8144258 modernizr3.htm %}
 
@@ -41,7 +41,7 @@ Modernizr 是一个用来检测浏览器HTML5特性的开源 JavaScript 库，�
 
 {% gist 8144258 modernizr4.css %}
 
-若浏览器支持 box-shadow ，<html> 中的 class 会有 boxshadow 类，否则的话会有no-boxshadow类，从而在 CSS 文件中依据浏览器特性进行输出，在整个判断或者匹配的过程中我们甚至不需要编写任何 JS 代码。
+若浏览器支持 box-shadow ，`<html>` 中的 class 会有 boxshadow 类，否则的话会有no-boxshadow类，从而在 CSS 文件中依据浏览器特性进行输出，在整个判断或者匹配的过程中我们甚至不需要编写任何 JS 代码。
 
 ###**加载脚本**
 
