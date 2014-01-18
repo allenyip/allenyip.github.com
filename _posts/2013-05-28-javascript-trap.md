@@ -21,7 +21,7 @@ JS 支持一条语句声明多个变量：
 
 {% gist 8487914 js1.js %}
 
-**在函数内加var关键字进行声明的变量为局部变量，除此之外所有的变量声明都是全局变量的**。
+**在函数内加 var 关键字进行声明的变量为局部变量，除此之外所有的变量声明都是全局变量的**。
 
 ##**数据类型**
 
@@ -29,21 +29,21 @@ JS 共有Undefined、Null、Boolean、Number、String、Array、Object对象七�
 
 {% gist 8487914 js2.js %}
 
-####**Undefined**
+###**Undefined**
 
 Undefined 类型只有一个特殊值 undefined，通过 typeof 判断变量类型，若得到的结果是 Undefined 类型，则变量可能已声明未赋值，也可能变量不存在，因此建议对每个变量进行显式初始化。
 
-####**Null**
+###**Null**
 
 Null 类型也只有一个特殊值 null，表示空对象，因此使用 typeof 判断会返回 object 类型。**实际上， undefined 派生自 null，因此 null == undefined**。
 
 **尽管声明变量时无需显示赋值为 undefined，对于对象变量却建议赋值为 null，有助于区分 null 和 undefined**。
 
-####**Boolean**
+###**Boolean**
 
 Boolean 类型有两个字面值 true 和 false，其他数据类型的值都可以转换成 Boolean 类型，**其中，除了空字符串（String）、0/NaN（Number）、null（Object）、undefined（Undefined）转换为 false，其他值都为 true**。
 
-####**Number**
+###**Number**
 
 **1，表示**
 
@@ -63,7 +63,7 @@ Number()、parseInt() 和 parseFloat() 三个函数将其他类型的值转换�
 
 {% gist 8487914 js4.js %}
 
-####**String**
+###**String**
 
 String 类型可以用单引号或者双引号表示，**字符串是不可变的**，因此：
 
@@ -73,7 +73,7 @@ String 类型可以用单引号或者双引号表示，**字符串是不可变�
 
 字符串转换可以使用转型函数 String()，也可以使用每个类型的 toString() 方法。
 
-####**Object**
+###**Object**
 
 JS 拥有诡异的面向对象特性，JS 中的所有事物都是对象：字符串、数值、数组、函数... 同时提供多个内建对象，比如 String、Date、Array 等等，对象只是带有属性和方法的特殊数据类型，同时，JS 允许自定义对象。
 
