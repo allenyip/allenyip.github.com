@@ -1,6 +1,6 @@
 ---
 
-title: CoffeeScript 和 jQury
+title: CoffeeScript 和 jQuery
 
 layout: post
 
@@ -14,7 +14,7 @@ CoffeeScript 是著名的 JavaScript 开发者 [Jeremy Ashkenas](http://ashkenas
 >CoffeeScript is a little language that compiles into JavaScript.   
 >It's just JavaScript
 
-这两句话简洁精准地定义了 CoffeeScript，它的唯一目的就是简化 JavaScript 的编写，JavaScript 确实有许多令人费解的地方，并且糟糕的糅合了多种语言模式，据说创造者 Brendan Eich 由于赶进度只用了十天就发布了它的雏形，与其说 CoffeeScript 在简化 JavaScript 编程，不如说它在取悦那些饱受摧残的开发者。
+这两句话简洁精准地定义了 CoffeeScript，它的唯一目的就是简化 JavaScript 的编写，JavaScript 确实有许多令人费解的地方，并且糟糕的糅合了多种语言模式，据说创造者 Brendan Eich 由于赶进度只用了十天就发布了它的雏形，与其说 CoffeeScript 是为了简化 JavaScript 编程，不如说它是为了取悦那些饱受摧残的开发者。
 
 ###**安装**
 
@@ -30,7 +30,7 @@ CoffeeScript 使用 Node 包的方式进行下载安装，因此需要先安装 
 
 * -c, --compile: 将 .coffee 脚本编译为 .js
 * -o, --output [DIR]: 将所有 JavaScript 文件写入指定文件夹
-* -w, --watch：检测文件是否更新
+* -w, --watch: 检测文件是否更新
 * -j, --join [FILE]: 多个脚本写入同一文件
 * null: 输入 coffee 回车将开启 REPL（结束 Ctrl-D, 多行 Ctrl-V）
 
@@ -44,31 +44,37 @@ CoffeeScript 代码确实美丽，编译时发生的许多事也令人着迷。�
 
 {% gist 8485182 cup1.coffee %}
 
-数组的迭代也十分强大
+数组的迭代更是强大：
 
 {% gist 8485182 cup2.coffee %}
 
-具体的语法可以参考 [CoffeeScript](http://coffeescript.org/) 主页，它甚至提供方便的在线编译，即使像我这样的 JavaScript 菜鸟也能很好的快速学习。
+具体的语法可以参考 [CoffeeScript](http://coffeescript.org/) 主页，上面还提供方便的在线编译，即使像我这样的 JavaScript 菜鸟也能很好的快速学习。
 
 ##**jQuery**
 
 遥想当年，年轻小伙 [John Resig](http://ejohn.org/) 在无数个寂寞的夜晚编写 jQuery 之时，他一定没想到如今这玩意儿能火成这样。现在，几乎所有写过网页的人都对 jQuery 不会陌生，作为最流行的 JavaScript 库，jQuery 为无数的前端工程师立下了汗马功劳。
 
-此处关于 jQuery 的赞美和介绍自动隐藏，下面展示如何将 CoffeeScript 和 jQuery 进行合体。
+此处自动隐藏关于 jQuery 的无数介绍和赞美，下面展示如何将 CoffeeScript 和 jQuery 进行合体。
 
 ###**DomReady** 
 
-ready 函数长这样：
+CoffeeScript 中的 ready 函数长这样：
 
 {% gist 8485182 cup3.coffee %}
+
+###**Form** 
 
 一条语句获取表单输入值（太尼玛神奇了）：
 
 {% gist 8485182 cup4.coffee %}
 
-回调函数例子：
+###**Callback** 
+
+看一个简单的回调函数例子：
 
 {% gist 8485182 cup5.coffee %}
+
+...
 
 ##**总结**
 
