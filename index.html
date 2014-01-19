@@ -23,6 +23,10 @@ title: Allen Yip
   </ul>
 
   <div id="pagination">
+    {% if paginator.page == 2 %}
+    <a href="">&laquo; previous</a>
+    {% endif %}
+
     {% if paginator.page > 1 %}
     <a href="/page{{ paginator.previous_page }}">&laquo; previous</a>
     {% endif %}
