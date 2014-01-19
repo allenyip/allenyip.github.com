@@ -1,11 +1,11 @@
 ---
 
-title: HTML/CSS 风格规范
+title: HTML/CSS 风格指南
 
 layout: post
 
 ---
-看了 Google 的 HTML/CSS 风格规范（[戳我](https://code.google.com/p/google-styleguide/)），记录一下收获。
+看了 Google 的 HTML/CSS 风格指南（[戳我](https://code.google.com/p/google-styleguide/)），记录一下收获。
 
 ##**通用样式**
 

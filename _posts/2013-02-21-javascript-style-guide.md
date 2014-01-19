@@ -1,11 +1,11 @@
 ---
 
-title: JavaScript 风格规范
+title: JavaScript 风格指南
 
 layout: post
 
 ---
-抽空学习了一下 JavaScript(JS) 的风格规范（[戳我](https://code.google.com/p/google-styleguide/) 有惊喜），下面是我觉得十分受用的精简版。
+抽空学习了一下 JavaScript(JS) 的风格指南（[戳我](https://code.google.com/p/google-styleguide/)），下面是我觉得十分受用的精简版。
 
 ##**语言**
 
