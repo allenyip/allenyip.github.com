@@ -87,4 +87,4 @@ layout: post
 
 8，推荐使用 [编译](https://developers.google.com/closure/compiler/?hl=zh-CN&csw=1) 压缩后的 JS 代码。
 
-9，如果你有自己的风格并且它很美，那么以上一切都是浮云。
+**如果你有自己的风格并且它很美，那么以上一切都是浮云。**
