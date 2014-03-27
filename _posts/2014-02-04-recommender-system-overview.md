@@ -16,13 +16,13 @@ layout: post
 
 ##**模型**
 
-![推荐系统模型](https://dl.dropboxusercontent.com/u/36470533/Photos/rs2.jpg)
+![推荐系统模型](https://dl.dropboxusercontent.com/u/36470533/Photos/rs2.png)
 
 **推荐系统通常包含三个模块：用户建模模块，推荐对象模块和推荐算法模块。**推荐系统把用户模型中兴趣需求信息和推荐对象模型中的特征信息匹配，同时使用相应的推荐算法进行计算筛选，找到用户可能感兴趣的推荐对象，然后推荐给用户，其中用户建模和推荐算法都是推荐系统热门的研究方向。
 
 ###**用户建模模块**
 
-![用户建模过程](https://dl.dropboxusercontent.com/u/36470533/Photos/rs3.jpg)
+![用户建模过程](https://dl.dropboxusercontent.com/u/36470533/Photos/rs3.png)
 
 用户建模过程主要分为获取用户信息、建立用户模型、更新用户模型等步骤。
 
@@ -44,7 +44,7 @@ layout: post
 
 ####**基于内容推荐**
 
-![基于内容推荐](https://dl.dropboxusercontent.com/u/36470533/Photos/rs4.jpg)
+![基于内容推荐](https://dl.dropboxusercontent.com/u/36470533/Photos/rs4.png)
 
 基于内容推荐的核心思想是用户过去感兴趣的信息，将来可能仍感兴趣。主要包括两点：一、分别对用户和产品建立配置文件，通过分析浏览/购买的内容，建立或更新用户配置文件；二、
 比较用户与产品配置文件的相似度，直接向用户推荐与配置文件最相似的产品。
@@ -53,7 +53,7 @@ layout: post
 
 ####**协同过滤推荐**
 
-![协同过滤推荐](https://dl.dropboxusercontent.com/u/36470533/Photos/rs5.jpg)
+![协同过滤推荐](https://dl.dropboxusercontent.com/u/36470533/Photos/rs5.png)
 
 协同过滤基于群体智慧，主要包括两点：一、利用用户的历史信息计算用户之间的相似性；二、利用与目标用户相似性较高的邻居对其他产品的评价预测目标用户对特定产品的喜好程度，根据喜好程度来推荐。
 
