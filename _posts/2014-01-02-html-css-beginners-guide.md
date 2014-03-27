@@ -1,6 +1,6 @@
 ---
 
-title: HTML/CSS 基础教程
+title: HTML/CSS 基础知识
 
 layout: post
 
