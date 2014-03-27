@@ -5,7 +5,7 @@ title: HTML/CSS 高级知识
 layout: post
 
 ---
-本文为HTML/CSS [初级教程](http://allenyip.com/2014/01/02/html-css-beginners-guide.html) 的兄弟篇。
+本文为HTML/CSS [初级知识](http://allenyip.com/2014/01/02/html-css-beginners-guide.html) 的兄弟篇。
 
 ##**性能及组织**
 
