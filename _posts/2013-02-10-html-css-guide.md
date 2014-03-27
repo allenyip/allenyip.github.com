@@ -92,7 +92,6 @@ div与其他三个不同，一般使用div包含内容是为了对内容的样�
 
 * **外部样式**：写在单独的文件中，在head标签中引入。如&lt;link ref="stylesheet" href="style.css" />
 
-<a id="reset" />
 ####CSS重置
 
 CSS重置的目的是为了防止浏览器默认样式对HTML文档进行修改，因此通常会为自己的HTML文档添加一个reset.css样式，比较出名的有 [Eric Meyers reset](http://meyerweb.com/eric/tools/css/reset/)。
@@ -113,7 +112,7 @@ CSS重置的目的是为了防止浏览器默认样式对HTML文档进行修改�
 
 ####**margin, padding和border**
 
-每个浏览器都有默认的margin和padding值，因此需要对其进行[重置](#reset)。属性border界于margin和paddnig之间并且对元素提供了一个轮廓，通常有三个值：宽度、类型和颜色。
+每个浏览器都有默认的margin和padding值，因此需要对其进行重置。属性border界于margin和paddnig之间并且对元素提供了一个轮廓，通常有三个值：宽度、类型和颜色。
 
 需要注意，两个相邻的margin会叠加为最大值。
 
@@ -185,4 +184,4 @@ CSS重置的目的是为了防止浏览器默认样式对HTML文档进行修改�
 
 一个导航列表的设计。list-style-type属性设置列表项标记的类型，也可通过背景图片自行定义。
 
-TBD 媒体文件，表单，表格，编程陋习
+详细：图片、音频和视频；漂亮的表单；漂亮的表格；编程陋习。
