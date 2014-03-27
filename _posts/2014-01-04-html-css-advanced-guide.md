@@ -1,11 +1,11 @@
 ---
 
-title: HTML/CSS 基础知识
+title: HTML/CSS 高级教程
 
 layout: post
 
 ---
-基础知识太薄弱了，学了 [Shay Howe](http://learn.shayhowe.com/html-css/) 制作的HTML/CSS新手教程后受益匪浅，发个文章总结一下。
+本文为HTML/CSS [初级教程]() 的兄弟篇。
 
 ##**HTML**
 
