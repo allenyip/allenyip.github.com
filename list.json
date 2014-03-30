@@ -12,4 +12,3 @@ title: "{{ post.title }}"
 {% endfor %}
 {}
 ]
-

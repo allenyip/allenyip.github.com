@@ -126,7 +126,7 @@ CSS重置的目的是为了防止浏览器默认样式对HTML文档进行修改�
 
 ####**定位**
 
-除了浮动外也可以使用定位进行布局设置。默认的position值是static，表示元素位于普通流中；relative则允许通过top, right, bottom和left等属性进行位置偏移设置；absolute和fixed与erlative一样采用偏移机制，但此时元素已经不处于普通流中，而是相对于上一个relative定位的父元素进行偏移。
+除了浮动外也可以使用定位进行布局设置。默认的position值是static，表示元素位于普通流中；relative表示元素仍位于普通流中占据位置，而允许通过top, right, bottom和left等属性进行位置偏移设置；absolute和fixed与relative一样采用偏移机制，但此时元素已经不处于普通流中，而是相对于上一个已定位的祖先元素进行偏移。
 
 ##**代码验证**
 
