@@ -55,7 +55,7 @@ layout: post
 
 12，为 IE 设置版本，如 &lt;meta http-equiv="X-UA-Compatible" content="IE=Edge">。
 
-13，属性的排列顺序：class > (id, name) > data-* > (src, for, type, href) > (title, alt) > (aria-*, role)。
+13，属性的排列顺序：class > (id, name) > data-\* > (src, for, type, href) > (title, alt) > (aria-\*, role)。
 
 14，布尔型属性不用赋值，如 checked, disabled 等。
 
