@@ -13,9 +13,6 @@ layout: post
 
 ![推荐系统定义](/img/rs1.jpg)
 
-https://dl.dropboxusercontent.com/u/36470533/Photos/rs1.jpg
-
-
 ##**模型**
 
 ![推荐系统模型](https://dl.dropboxusercontent.com/u/36470533/Photos/rs2.png)
