@@ -48,7 +48,7 @@ tt {
   font: 14px "Menlo", monospace;
 }
 
-/* modify starts */
+/* modify code starts */
 .post pre {
   border: 1px solid #ddd;
   background-color: #3D3D3D;
@@ -56,26 +56,43 @@ tt {
 }
 
 .post code {
-    border: 1px solid #ddd;
-    background-color: #3D3D3D;
-    font-size: 85%;
-    padding: 0 .2em;
-  }
-
-    .post pre code {
-      border: none;
-    }
-
-/* terminal */
-
-#post pre.terminal {
-  border: 1px solid black;
-  background-color: #333;
-  color: white;
+  font: 0.8em droid-sans-mono-1, droid-sans-mono-2, monospace;
+  border: 1px solid rgba(145, 77, 0, 0.15);
+  border-radius: 0.2em;
+  padding: 0.0em 0.1em;
+  background: rgba(145, 77, 0, 0.03);
 }
-
-#post pre.terminal code {
-  background-color: #333;
+.post .highlight {
+  background: #ffb;
+  border-radius: 0.3em;
+  padding: 0.8em;
+  color: white;
+  background: #222;
+  margin-top: -0.8em;
+  margin-bottom: 0.9em;
+}
+.post .highlight pre {
+  font: 0.8em droid-sans-mono-1, droid-sans-mono-2, monospace;
+  line-height: 1.25em;
+  display: block;
+}
+.post .highlight pre .s1, .post .highlight pre .s2, .post .highlight pre .sx, .post .highlight pre .mi {
+        color: #aec4eb;
+}
+.post .highlight pre .nb, .post .highlight pre .k, .post .highlight pre .o, .post .highlight pre .kp {
+  color: #c4ebae;
+}
+.post .highlight pre .ss {
+  color: #ffcf87;
+}
+.post .highlight pre .nf {
+  color: #ffffa0;
+}
+.post .highlight pre .vi {
+  color: #ff9f9d;
+}
+.post .highlight pre .c, .post .highlight pre .c1 {
+  color: #a0a0a0;
 }
 /* modify ends */
 
