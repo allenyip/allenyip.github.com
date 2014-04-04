@@ -38,15 +38,46 @@ a:hover {
   color: #aa0000;
 }
 
-pre, blockquote {
+blockquote {
   border-left: 1px solid #ccc;
   margin: 0 0 20px 0px;
   padding: 10px 15px;
 }
 
-pre, tt, code {
-    font: 14px "Menlo", monospace;
+tt {
+  font: 14px "Menlo", monospace;
 }
+
+/* modify starts */
+.post pre {
+  border: 1px solid #ddd;
+  background-color: #eef;
+  padding: 0 .4em;
+}
+
+.post code {
+    border: 1px solid #ddd;
+    background-color: #eef;
+    font-size: 85%;
+    padding: 0 .2em;
+  }
+
+    .post pre code {
+      border: none;
+    }
+
+/* terminal */
+
+#post pre.terminal {
+  border: 1px solid black;
+  background-color: #333;
+  color: white;
+}
+
+#post pre.terminal code {
+  background-color: #333;
+}
+/* modify ends */
 
 .align-center {
   text-align: center;
