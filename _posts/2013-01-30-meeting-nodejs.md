@@ -21,7 +21,14 @@ Node 如何解决这个问题？它利用 JS 语言的 [事件驱动][2] 特性�
 
 Node 采用模块架构，可以利用 NPM 安装模块实现各式各样的功能，使用 require 引入模块，如使用 require('http') 引入自带的 HTTP 模块。Node 的 Hello World 长这样:
 
-{% gist 7749475 node1.js %}
+{% highlight javascript %}
+//启动NodeJS服务
+var http = require('http');
+http.createServer(function (req, res) {
+  res.writeHead(200, {'Content-Type': 'text/plain'});
+  res.end('Hello World\n');
+}).listen(1337, '127.0.0.1');
+{% endhighlight %}
 
 函数式编程的神奇之处就在于可以将函数作为普通参数传递，甚至是像上面的匿名函数，这种「基于事件驱动的回调」正是 Node 的主要工作方式，问题是，我们对于传统的 B/S 交互都是 Server 的监听线程收到连接请求后新建一个线程处理交互，而现在我们的服务器跑在一个单线程中如何处理这些异步请求？
 
@@ -29,20 +36,37 @@ Node 采用模块架构，可以利用 NPM 安装模块实现各式各样的功�
 
 首先看一下什么是阻塞：
 
-{% gist 7749475 node2.js %}
+{% highlight javascript %}
+// 阻塞示例
+var res = db.query("select * from T");
+output(res);
+{% endhighlight %}
 
 进程在执行数据库查询语句后会挂起等待查询结束才进行下一条语句，当查询过于复杂或者查询进程过多时就会造成阻塞。
 
 基于事件驱动的设计如何实现非阻塞：
 
-{% gist 7749475 node3.js %}
+{% highlight javascript %}
+// 非阻塞示例
+db.query("select... ", function (res){
+    output(res);
+});
+//do something else
+{% endhighlight %}
 
 进程在查询后并不挂起等待而继续执行其他语句，而查询结束后会自动调用结果处理函数。
 
 ##**DEMO**
 有关 Node 的教程 Google 老师给了很多，我照着 [这本书][5] 粗略学习了下，里面关于代码的组织和模块架构讲解得十分清楚。另外，JS 的休眠方法很有趣：
 
-{% gist 7749475 node4.js %}
+{% highlight javascript %}
+//JS休眠
+function sleep(milliSeconds) {
+    var startTime = new Date().getTime();
+    while (new Date().getTime() < startTime + milliSeconds);
+}
+sleep(10000);
+{% endhighlight %}
 
 写了几个小 Demo，仅仅用了几行代码就实现了一个高效的文件上传，感叹 Node 强大的同时却无法领会各种奥妙，先暂且入个门吧，函数式编程的古怪确实让我措手不及，我想我得找几本书看看了：（
 

@@ -15,14 +15,49 @@ layout: post
 直接将源码放到 SAE，毫无意外地各种报错。  
 首先是 MySQL，开启服务后手动建立 MySQL 数据库，将代码中的数据库配置改为：
 
-{% gist 7749402 sae1.php %}
+{% highlight php %}
+<?php
+// 数据库主机
+define('C_DB_HOST', SAE_MYSQL_HOST_M);
+//sae:数据库端口
+define('C_DB_PORT', SAE_MYSQL_PORT);
+// 数据库用户名
+define('C_DB_USER', SAE_MYSQL_USER);
+// 数据库密码
+define('C_DB_PASSWORD', SAE_MYSQL_PASS);
+// 数据库名称
+define('C_DB_NAME', SAE_MYSQL_DB);
+?>
+{% endhighlight %}
 
 其次是 Memcache，由于 SAE 不支持直接写文件，Smarty 模板引擎也不支持，需将缓存写到 Memcache 中，开启 Memcache 服务后，将代码中的 Smarty 配置改为：
 
-{% gist 7749402 sae2.php %}
+{% highlight php %}
+<?php
+// smartytpl为存放缓存的文件夹
+$smarty->compile_dir = 'saemc://smartytpl/';
+$smarty->cache_dir = 'saemc://smartytpl/';
+$smarty->compile_locking = false;
+?>
+{% endhighlight %}
 
 然后是 Storage，由于平台限制，写入的文件都要放到 Storage 中，开启服务后新建 domain，将代码中的文件写入相关改为：
 
-{% gist 7749402 sae3.php %}
+{% highlight php %}
+<?php
+///...
+// 判断文件是否存在
+bool fileExists(string $domain, string $filename)
+// 获取指定domain下的文件名列表，可用于判断文件夹存在
+array getList(string $domain, [string $prefix = '*'], [int $limit = 10], [int $skip = 0])
+// 获取文件内容
+mixxed read (string $domain, string $filename)
+// 将数据写入存储
+string write (string $domain, string $destFile, string $content, [int $size = -1], [array $attr = array()], [bool $compress = false])
+// 将文件上传入存储
+ string upload (string $domain, string $destFile, string $srcFile, [array $attr = array()], [bool $compress = false])
+//...
+ ?>
+{% endhighlight %}
 
 其他 SAE 服务有待添加...

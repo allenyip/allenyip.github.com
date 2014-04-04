@@ -11,7 +11,9 @@ layout: post
 
 推荐系统的本质是一种信息过滤技术，通过联系用户和信息，帮助用户发现有价值的信息，并让信息展现在对它感兴趣的用户面前。
 
-![推荐系统定义](https://dl.dropboxusercontent.com/u/36470533/Photos/rs1.jpg)
+![推荐系统定义](/img/rs1.jpg)
+
+https://dl.dropboxusercontent.com/u/36470533/Photos/rs1.jpg
 
 
 ##**模型**

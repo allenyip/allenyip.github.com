@@ -22,7 +22,9 @@ CoffeeScript 使用 Node 包的方式进行下载安装，因此需要先安装 
 
 之后在终端输入 npm 安装语句即可。
 
->sudo npm install -g coffee-script
+'''shell
+> sudo npm install -g coffee-script
+```
 
 ###**命令**
 
@@ -38,15 +40,96 @@ CoffeeScript 使用 Node 包的方式进行下载安装，因此需要先安装 
 
 CoffeeScript 代码确实美丽，编译时发生的许多事也令人着迷。拿函数的语法来说，简化后的语法简直跟普通的赋值语句相差无几：
 
-{% gist 8485182 cup0.coffee %}
+```coffeescript
+# function
+square = (x) -> x * x
+ 
+fill = (container, liquid = "coffee") ->
+  "Filling the #{container} with #{liquid}..."
+  
+### JavaScirpt
+var fill, square;
+ 
+square = function(x) {
+  return x * x;
+};
+ 
+fill = function(container, liquid) {
+  if (liquid == null) {
+    liquid = "coffee";
+  }
+  return "Filling the " + container + " with " + liquid + "...";
+};
+###
+```
 
 还可以像 YAML 那样赋值：
 
-{% gist 8485182 cup1.coffee %}
+```coffeescript
+# value
+kids =
+  brother:
+    name: "Max"
+    age:  11
+  sister:
+    name: "Ida"
+    age:  9
+ 
+### JavaScirpt
+var kids;
+ 
+kids = {
+  brother: {
+    name: "Max",
+    age: 11
+  },
+  sister: {
+    name: "Ida",
+    age: 9
+  }
+};
+###
+```
 
 数组的迭代更是强大：
 
-{% gist 8485182 cup2.coffee %}
+```coffeescript
+# array
+list = [1, 2, 3, 4, 5]
+ 
+cubes = (math.cube num for num in list) 
+ 
+copy = list[0...list.length] 
+ 
+countdown = (num for num in [10..1]) 
+ 
+### JavaScript
+var copy, countdown, cubes, list, num;
+ 
+list = [1, 2, 3, 4, 5];
+ 
+cubes = (function() {
+  var _i, _len, _results;
+  _results = [];
+  for (_i = 0, _len = list.length; _i < _len; _i++) {
+    num = list[_i];
+    _results.push(math.cube(num));
+  }
+  return _results;
+})();
+ 
+copy = list.slice(0, list.length);
+ 
+countdown = (function() {
+  var _i, _results;
+  _results = [];
+  for (num = _i = 10; _i >= 1; num = --_i) {
+    _results.push(num);
+  }
+  return _results;
+})();
+###
+```
 
 具体的语法可以参考 [CoffeeScript](http://coffeescript.org/) 主页，上面还提供方便的在线编译，即使像我这样的 JavaScript 菜鸟也能很好的快速学习。
 
@@ -60,19 +143,78 @@ CoffeeScript 代码确实美丽，编译时发生的许多事也令人着迷。�
 
 CoffeeScript 中的 ready 函数长这样：
 
-{% gist 8485182 cup3.coffee %}
+```coffeescript
+# CoffeeScript ready
+$->  
+  some()  
+  init()  
+  calls()
+  
+### JavaScript
+$(document).ready(function() {  
+  some();  
+  init();  
+  calls();  
+}) 
+###
+ 
+# CoffeeScript ready v2
+jQuery ($) ->
+  # your code here!
+  
+### JavaScript
+jQuery(function($) {
+  // your code here!
+});
+###
+```
 
 ###**Form** 
 
 一条语句获取表单输入值（太尼玛神奇了）：
 
-{% gist 8485182 cup4.coffee %}
+```coffeescript
+# CoffeeScript
+formValues = (elem.value for elem in $('.input')) 
+ 
+### JavaScript
+var elem, formValues;  
+formValues = (function() {  
+  var _i, _len, _ref, _results;  
+  _ref = $('.input');  
+  _results = [];  
+  for (_i = 0, _len = _ref.length; _i < _len; _i++) {  
+    elem = _ref[_i];  
+    _results.push(elem.value);  
+  }  
+  return _results;  
+})();
+###
+```
 
 ###**Callback** 
 
 看一个简单的回调函数例子：
 
-{% gist 8485182 cup5.coffee %}
+```coffeescript
+# CoffeeScript
+object =  
+  func: -> $('#div').click => @element.css color: 'red' 
+  
+### JavaScript
+var object;  
+var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };  
+object = {  
+  func: function() {  
+    return $('#div').click(__bind(function() {  
+      return this.element.css({  
+        color: 'red' 
+      });  
+    }, this));  
+  }  
+}; 
+###
+```
 
 ...
 

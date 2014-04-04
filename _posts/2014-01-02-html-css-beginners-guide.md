@@ -11,14 +11,28 @@ layout: post
 
 ###**术语**
 
-* **Elements（元素）**：HTML文档由元素构成，元素指的是开始标签到结束标签之内的所有内容。如&lt;a href="//allenyip.com/">Allen Yip&lt;/a> 表示一个链接元素。
+* **Elements（元素）**：HTML文档由元素构成，元素指的是开始标签到结束标签之内的所有内容。如`<a href="//allenyip.com/">Allen Yip<a>` 表示一个链接元素。
 
-* **Tags（标签）**：用来标记元素，通常以开始标签和结束标签成对出现。如&lt;a>和&lt;/a>
-* **Attributes（属性）**：为元素提供额外信息，在开始标签中以Name/Value对定义。如href="//allenyip.com/"
+* **Tags（标签）**：用来标记元素，通常以开始标签和结束标签成对出现。如`<a>`和`</a>`
+
+* **Attributes（属性）**：为元素提供额外信息，在开始标签中以Name/Value对定义。如`href="//allenyip.com/"`
 
 ###**结构和语法**
 
-{% gist 9802636 html0.html %}
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Hello World</title>
+  </head>
+  <body>
+    <h1>Hello World</h1>
+    <!-- This is a comment.-->
+    <p>This is a website.</p>
+  </body>
+</html>
+```
 
 所有HTML文档都必须包含doctype, html, head和body标签。
 
@@ -62,11 +76,23 @@ div与其他三个不同，一般使用div包含内容是为了对内容的样�
 
 ###**结构和语法**
 
-{% gist 9802636 html1.css %}
+```css
+selector {
+    property: value;
+	/* comment */
+	property: value;
+}
+```
 
 ####属性连写
 
-{% gist 9802636 html2.css %}
+```css
+p {
+	padding: 10px; /* all */
+	padding: 10px 10px; /* top-and-bottom right-and-left */
+	padding: 10px 10px 10px 10px; /* top right bottom left */
+}
+```
 
 ####选择器
 
@@ -80,17 +106,38 @@ div与其他三个不同，一般使用div包含内容是为了对内容的样�
 
 选择器可以有多种组合方式。如通过逗号或者上下文等方式进行组合：
 
-{% gist 9802636 html3.css %}
+```css
+/* 逗号分组 */
+h1, h2, h3, h4 {
+	color: #ccc;
+}
+ 
+/* 连写 */
+ul#stu { /* ID为stu的ul元素 */
+	padding: 0;
+}
+ 
+/* 上下文 */
+ul#stu li { /* ID为stu的ul元素下的li元素 */
+	background: #ccc;
+}
+```
 
 ####引用CSS
 
-* **行内样式**：写在开始标签中，相当于为元素增加style属性。如<p style="color: #ccc;" {...}
+* **行内样式**：写在开始标签中，相当于为元素增加style属性。如`<p style="color: #ccc;" {...}`
 
 * **内页样式**：写在head标签中。如：
 
-{% gist 9802636 html4.css %}
+```html
+<style type="text/css">
+	p {
+	color: #ccc;
+	}
+</style>
+```
 
-* **外部样式**：写在单独的文件中，在head标签中引入。如&lt;link ref="stylesheet" href="style.css" />
+* **外部样式**：写在单独的文件中，在head标签中引入。如`<link ref="stylesheet" href="style.css">`
 
 ####CSS重置
 
@@ -140,7 +187,17 @@ CSS重置的目的是为了防止浏览器默认样式对HTML文档进行修改�
 
 ###**字体**
 
-{% gist 9802636 html5.css %}
+```css
+p {
+	font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+	font-size: 13px; /* .8em, 5pt, 5%*/
+	font-style: normal; /* italic, oblique, inherit */
+	font-weight: bold;/* normal 400==normal/700==bold*
+	line-height: 20px;/* 150% usually*/
+ 
+	font: italic bold 13px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; /* shorthand */	
+}
+```
 
 * font-family属性设置字体系列并用逗号隔开，若第一个值不可用则采用第二个，以此类推。并且始终提供一个类族名称作为最后的选择。
 
@@ -158,7 +215,17 @@ CSS重置的目的是为了防止浏览器默认样式对HTML文档进行修改�
 
 ###**文本**
 
-{% gist 9802636 html6.css %}
+```css
+p {
+	text-align: center;/* left, right, justify */
+	text-decoration: line-through; /* overline, underline, blink*/
+	text-indent: 20px;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);/* CCS3 */
+	text-transform: uppercase;/* lowercase, capitalize */
+	letter-spacing: -.5em;
+	word-spacing: .25em;
+}
+```
 
 * text-align属性规定元素中的文本的水平对齐方式。
 
@@ -176,11 +243,77 @@ CSS重置的目的是为了防止浏览器默认样式对HTML文档进行修改�
 
 ###**列表**
 
-{% gist 9802636 html7.css %}
+```html
+<ol>
+  <li>Walk the dog</li>
+  <li>Fold laundry</li>
+  <li>Go to the grocery and buy:
+    <ul>
+      <li>Milk</li>
+      <li>Bread</li>
+      <li>Cheese</li>
+    </ul>
+  </li>
+  <li>Mow the lawn</li>
+  <li>Make dinner</li>
+  <li>
+    A Definition List:
+    <dl>
+      <dt>study</dt>
+      <dd>the devotion of time and attention to acquiring knowledge on an academic subject, esp. by means of books</dd>
+      <dt>design</dt>
+      <dd>a plan or drawing produced to show the look and function or workings of a building, garment, or other object before it is built or made</dd>
+    </dl>
+  </li>
+</ol>
+ ```
 
 无序列表ul和li，有序列表ol和li，定义列表dl和dt, dd，三种列表可以相互嵌套。
 
-{% gist 9802636 html8.css %}
+```css
+<ul>
+  <li><a href="#" title="Profile">Profile</a></li>
+  <li><a href="#" title="Settings">Settings</a></li>
+  <li><a href="#" title="Notifications">Notifications</a></li>
+  <li><a href="#" title="Logout">Logout</a></li>
+</ul>
+ 
+ul {
+  list-style: none;
+  margin: 0;
+}
+li {
+  float: left;
+}
+a {
+  background: #404853;
+  background: linear-gradient(#687587, #404853);
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  display: block;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 0 20px;
+  line-height: 38px;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+}
+a:hover {
+  background: #454d59;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  color: #d0d2d5;
+}
+li:first-child a {
+  border-left: none;
+  border-radius: 4px 0 0 4px;
+}
+li:last-child a {
+  border-right: none;
+  border-radius: 0 4px 4px 0;
+}
+```
 
 一个导航列表的设计。list-style-type属性设置列表项标记的类型，也可通过背景图片自行定义。
 

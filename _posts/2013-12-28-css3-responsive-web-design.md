@@ -19,25 +19,98 @@ layout: post
 
 首先，在代码头部加入 meta 标签：
 
-> &lt;meta name="viewport" content="width=device-width, initial-scale=1" />
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+```
 
 viewport 是网页默认的宽度和高度，上面这行代码的意思是，网页宽度默认等于屏幕宽度，原始缩放比例为 1.0，即网页初始大小等于屏幕面积。
 
 对于不支持 Media Queries 的 IE8 及其更低版本可以使用 media-queries.js 或 respond.js 脚本实现支持。
 
-> &lt;!--[if lt IE 9]>  
- &lt;script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js" />  
- &lt;![endif]-->
+```html
+<!--[if lt IE 9]>
+<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js" />
+<![endif]-->
+```
 
 ###**HTML**
 
-{% gist 8970440 adaptive.html %}
+```html
+<div id="pagewrap">
+	<div id="header">
+		<h1>Header</h1>
+		<p>Tutorial by <a href="http://webdesignerwall.com">Web Designer Wall</a></p>
+	</div>
+	<div id="content">
+		<h2>Content</h2>
+		<p>text</p>
+		<p>text</p>
+		<p>text</p>
+		<p>text</p>
+		<p>text</p>
+		<p>text</p>
+		<p>text</p>
+		<p>text</p>
+		<p>text</p>
+		<p>text</p>
+	</div>
+	<div id="sidebar">
+		<h3>Sidebar</h3>
+		<p>text</p>
+		<p>text</p>
+	</div>
+	<div id="footer">
+		<h4>Footer</h4>
+	</div>
+</div>
+```
 
 示例代码（[Demo](http://webdesignerwall.com/demo/responsive-design/index.html)）为最常用的页面布局，包括 Header、Content、Sidebar 和 Footer。
 
 ###**Media Queries**
 
-{% gist 8970440 adaptive.css %}
+```css
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+/* for 980px or less */
+@media screen and (max-width: 980px) {
+	#pagewrap {
+		width: 94%;
+	}
+	#content {
+		width: 65%;
+	}
+	#sidebar {
+		width: 30%;
+	}
+}
+ 
+/* for 700px or less */
+@media screen and (max-width: 700px) {
+	#content {
+		width: auto;
+		float: none;
+	}
+	#sidebar {
+		width: auto;
+		float: none;
+	}
+}
+ 
+/* for 480px or less */
+@media screen and (max-width: 480px) {
+	#header {
+		height: auto;
+	}
+	h1 {
+		font-size: 24px;
+	}
+	#sidebar {
+		display: none;
+	}
+}
+```
 
 这段 CSS3 Media Queries 代码是实现自适应网页设计的关键，它通过页面宽度自动渲染网页，实现自适应。
 

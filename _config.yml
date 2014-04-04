@@ -1,6 +1,5 @@
-markdown: rdiscount
+name: Allen Yip
+markdown: redcarpet
 pygments: true
-auto: true
-server: true
 
 paginate: 20

@@ -1,16 +1,9 @@
 ---
-layout: index
+layout: default
 ---
+<h2>{{ page.title }}</h2>
+<p class="meta">{{ page.date | date_to_string }}</p>
 
-<article id="single" class="hentry">
-  <header>
-    <h1 class="entry-title">{{ page.title }}</h1>
-    <time datetime="{{ page.date | date_to_xmlschema }}">
-      {{ page.date | date: '%d %B %Y' }}
-    </time>
-  </header>
-
-  <div class="entry-content">
-    {{ content }}
-  </div>
-</article>
+<div class="post">
+{{ content }}
+</div>

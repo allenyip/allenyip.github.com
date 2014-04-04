@@ -19,13 +19,17 @@ Modernizr 是一个用来检测浏览器 HTML5 特性的开源 JavaScript 库，
 
 ###**下载**
 
-与大部分 JS 库相同，Modernizr 提供了 Development 和 Production 两种版本供用户选择，Development 版本是给我这种菜鸟使用的完整包，Production 版本则是定制的无注释换行的精简包。下载之后放入项目 js 文件夹，打开页面在 `<head>` 元素间加入如下代码：
+与大部分 JS 库相同，Modernizr 提供了 Development 和 Production 两种版本供用户选择，Development 版本是给我这种菜鸟使用的完整包，Production 版本则是定制的无注释换行的精简包。下载之后放入项目 js 文件夹，打开页面在 `head` 元素间加入如下代码：
 
-{% gist 8144258 modernizr1.htm %}
+```html
+<script src="js/modernizr-x.x.x.js"></script>
+```
 
-然后在 `<html>` 根元素中添加一个 no-js 类：
+然后在 `html` 根元素中添加一个 no-js 类：
 
-{% gist 8144258 modernizr2.htm %}
+```html
+<html class="no-js">
+```
 
 如果 Modernizr 正常运行，它会移除 no-js，添加一个 js 类；假如用户浏览器禁用 JavaScript，则 Modernizr 无法运行，html 标签就有 no-js。这是如何实现的呢，其实也不难。
 
@@ -33,13 +37,29 @@ Modernizr 是一个用来检测浏览器 HTML5 特性的开源 JavaScript 库，
 
 页面在加载完 Modernizr.js 后，会自动运行生成一个包含浏览器支持特性的 Modernizr 对象，另外，它还会给 `<html>` 标签添加新的类(class)，以标明浏览器对 HTML5、CSS3 特性的支持情况。下面是 Chrome 31 for Windows 的界面（顺便赞一下Chrome）：
 
-{% gist 8144258 modernizr3.htm %}
+```html
+<html class="js flexbox canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange
+history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity
+cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface video audio
+localstorage sessionstorage webworkers applicationcache svg inlinesvg smil svgclippaths">
+```
 
 ###**DEMO**
 
 以一个输入界面为例：
 
-{% gist 8144258 modernizr4.css %}
+```css
+input:valid, textarea:valid {}
+input:invalid, textarea:invalid {
+  border-radius: 1px; 
+     -moz-box-shadow: 0px 0px 5px red; 
+  -webkit-box-shadow: 0px 0px 5px red; 
+          box-shadow: 0px 0px 5px red;
+}
+.no-boxshadow input:invalid, .no-boxshadow textarea:invalid {
+  background-color: #f0dddd;
+}
+```
 
 若浏览器支持 box-shadow ，`<html>` 中的 class 会有 boxshadow 类，否则的话会有no-boxshadow类，从而在 CSS 文件中依据浏览器特性进行输出，在整个判断或者匹配的过程中我们甚至不需要编写任何 JS 代码。
 
@@ -47,8 +67,16 @@ Modernizr 是一个用来检测浏览器 HTML5 特性的开源 JavaScript 库，
 
 针对一些不兼容的浏览器，Modernizr 可以通过 Modernizr.load() 功能加载 [shim/polyfills](https://github.com/Modernizr/Modernizr/wiki/HTML5-Cross-Browser-Polyfills) 脚本，具体使用方法如下：
 
-{% gist 8144258 modernizr5.js %}
-
+```javascript
+Modernizr.load({
+  test: Modernizr.geolocation,
+  yep : 'geo.js',
+  nope: 'geo-polyfill.js',
+  complete: function(){
+    init();
+  }
+});
+```
 * test：测试的特性
 * yep：浏览器支持加载的脚本
 * nope：浏览器不支持加载的脚本
