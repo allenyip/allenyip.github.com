@@ -6,8 +6,11 @@ html, body {
 }
 
 body {
-  font: 16px/1.8 "Rosario", "Xin Gothic", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
+  /*font: 16px/1.8 "Rosario", "Xin Gothic", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
   color: #666;
+  */
+  font-size:14px;font-family:"Galdeano","Hiragino Sans GB","Microsoft YaHei",Trebuchet,"Trebuchet MS",Tahoma,"Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;
+  color:#666;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -49,12 +52,6 @@ tt {
 }
 
 /* modify code starts */
-.post pre {
-  border: 1px solid #ddd;
-  background-color: #3D3D3D;
-  padding: 0 .4em;
-}
-
 .post code {
   font: 0.8em droid-sans-mono-1, droid-sans-mono-2, monospace;
   border: 1px solid rgba(145, 77, 0, 0.15);
