@@ -5,11 +5,11 @@ title: 拥抱 Python
 layout: post
 
 ---
-由于第三方势力的良性压迫，最近终于有时间正经学学 [Python](http://www.python.org/) 了，于是发文，用于记录我所了解的关于Python的一切。
+由于第三方势力的良性压迫，最近终于有时间正经学学 [Python](http://www.python.org/) 了，本文用于记录我所了解的Python。
 
 ##**学习资料**
 
-* **[A Byte of Python](http://swaroopch.com/book/python/) ** by Swaroop C H ([中文](http://sebug.net/paper/python/))
+* **[A Byte of Python](http://swaroopch.com/book/python/)** by Swaroop C H ([中文](http://sebug.net/paper/python/))
 
 * **[Learn Python The Hard Way](http://learnpythonthehardway.org/)** by Zed. A. Shaw ([中文](http://sebug.net/paper/books/LearnPythonTheHardWay/))
 
@@ -54,10 +54,12 @@ Python完全免费且开源，大部分Linux/Mac系统都默认安装了Python�
 
 以及它加入的分数类型：
 
-> from fractions import Fraction
-> x = Fraction(1, 3)
-> y = Fraction(4, 6)
-> print (x + y)
+```python
+from fractions import Fraction
+x = Fraction(1, 3)
+y = Fraction(4, 6)
+print (x + y)
+```
 
 ###**字符串**
 
@@ -87,37 +89,45 @@ Python完全免费且开源，大部分Linux/Mac系统都默认安装了Python�
 
 Python内置了简单的文件操作方法，如：
 
-> in = open(r'/usr/...','r') # 读（默认）
-> str = in.read() # 读取整个文件到单一字符串
-> str = in.read(N) # 读取之后的N个字节
-> str = in.readline() # 读取下一行
-> l = in.readlines() # 读取整个文件到列表
-> out = open(r'/usr/...','w/a') # 写/追加
-> out.write(str) # 写入整个字符串
-> out.writelines(l) # 写入列表
-> out.seek(N) # 修改文件位置到偏移量N
-> out.flush() # 输出缓冲区刷到硬盘，但不关闭文件
-> out.close() # 关闭文件
+```python
+in = open(r'/usr/...','r') # 读（默认）
+str = in.read() # 读取整个文件到单一字符串
+str = in.read(N) # 读取之后的N个字节
+str = in.readline() # 读取下一行
+l = in.readlines() # 读取整个文件到列表
+out = open(r'/usr/...','w/a') # 写/追加
+out.write(str) # 写入整个字符串
+out.writelines(l) # 写入列表
+out.seek(N) # 修改文件位置到偏移量N
+out.flush() # 输出缓冲区刷到硬盘，但不关闭文件
+out.close() # 关闭文件
+```
 
 ###**注意**
 
 赋值操作总是存储对象的引用，而非拷贝，比如：
 
-> X = [1,2,3]
-> L = ['a',X,'b'] # L is ['a',[1,2,3],'b']
-> X[1] = 'z' # L changes to ['a',[1,'z',3],'b']
+```python
+X = [1,2,3]
+L = ['a',X,'b'] # L is ['a',[1,2,3],'b']
+X[1] = 'z' # L changes to ['a',[1,'z',3],'b']
+```
 
 因此，在不需要保持原值时，应当赋予其拷贝或者新值，而非直接赋值。
 
-> X = [1,2,3]
-> L = ['a',X[:],'b'] # L is ['a',[1,2,3],'b']
-> X[1] = 'z' # L is still ['a',[1,2,3],'b']
+```python
+X = [1,2,3]
+L = ['a',X[:],'b'] # L is ['a',[1,2,3],'b']
+X[1] = 'z' # L is still ['a',[1,2,3],'b']
+```
 
 另外，相等比较时，==操作符测试值的相等性，is表达式则测试对象的一致性，比如：
 
-> L1 = [1,2,3]
-> L2 = [1,2,3]
-> L1 == L2, L1 is L2 # True, False
+```python
+L1 = [1,2,3]
+L2 = [1,2,3]
+L1 == L2, L1 is L2 # True, False
+```
 
 ##**语句和语法**
 
@@ -151,21 +161,25 @@ TBD：其余语句语法大同小异，暂不赘述。
 
 多态指的是一个操作的意义取决于被操作对象的类型，比如：
 
-> def times(x, y):
-> 	  return x * y
-> times(2,4) # 8
-> times('a',4) # aaaa
+```python
+def times(x, y):
+	return x * y
+times(2,4) # 8
+times('a',4) # aaaa
+```
 
 *操作对不同的类型产生了与之匹配的不同运算，表现出多台。
 
-> def intersect(seq1, seq2):
->     res = []
->     for x in seq1:
->         if x in seq2:
->             res.append(x)
->     return res
-> intersect("SPAM","SPCM") # ['S','P','M']
-> intersect([1,2,3],(1,4)) # [1]
+```python
+def intersect(seq1, seq2):
+    res = []
+    for x in seq1:
+        if x in seq2:
+            res.append(x)
+    return res
+intersect("SPAM","SPCM") # ['S','P','M']
+intersect([1,2,3],(1,4)) # [1]
+```
 
 ###**作用域**
 
@@ -177,13 +191,15 @@ TBD：其余语句语法大同小异，暂不赘述。
 
 * 在函数外给一个变量名赋值时，本地作用域与全局作用域相同。
 
-> x = 22 # global in default
-> y = 22
-> def func():
->     glocal x
->     x = 99
->     y = 99
-> func()
-> print(x,y) # 99,22
+```python
+x = 22 # global in default
+y = 22
+def func():
+    glocal x
+    x = 99
+    y = 99
+func()
+print(x,y) # 99,22
+```
 
 TBD...
