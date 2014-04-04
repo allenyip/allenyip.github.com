@@ -1,5 +1,6 @@
-@import url(//fonts.googleapis.com/css?family=Rosario);
-@import url(//fonts.googleapis.com/css?family=PT+Sans);
+@import url(http://fonts.googleapis.com/css?family=Galdeano);
+@import url(http://fonts.googleapis.com/css?family=Electrolize);
+@import url(http://fonts.googleapis.com/css?family=Cuprum);
 
 html, body {
   height: 100%;
@@ -9,7 +10,7 @@ body {
   /*font: 16px/1.8 "Rosario", "Xin Gothic", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", Arial, sans-serif;
   color: #666;
   */
-  font-size:14px;font-family:"Galdeano","Hiragino Sans GB","Microsoft YaHei",Trebuchet,"Trebuchet MS",Tahoma,"Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;
+  font: 16px/1.8 "Galdeano","Hiragino Sans GB","Microsoft YaHei",Trebuchet,"Trebuchet MS",Tahoma,"Lucida Grande","Lucida Sans Unicode",Verdana,sans-serif;
   color:#666;
 }
 
@@ -72,24 +73,6 @@ tt {
   font: 0.8em droid-sans-mono-1, droid-sans-mono-2, monospace;
   line-height: 1.25em;
   display: block;
-}
-.post .highlight pre .s1, .post .highlight pre .s2, .post .highlight pre .sx, .post .highlight pre .mi {
-        color: #aec4eb;
-}
-.post .highlight pre .nb, .post .highlight pre .k, .post .highlight pre .o, .post .highlight pre .kp {
-  color: #c4ebae;
-}
-.post .highlight pre .ss {
-  color: #ffcf87;
-}
-.post .highlight pre .nf {
-  color: #ffffa0;
-}
-.post .highlight pre .vi {
-  color: #ff9f9d;
-}
-.post .highlight pre .c, .post .highlight pre .c1 {
-  color: #a0a0a0;
 }
 /* modify ends */
 
