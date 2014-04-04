@@ -48,32 +48,23 @@ blockquote {
   padding: 10px 15px;
 }
 
-tt {
-  font: 14px "Menlo", monospace;
+/* modify code starts */
+.post pre {
+  border: 1px solid #ddd;
+  background: rgba(235, 213, 174, 0.03);
+  padding: 0 .4em;
 }
 
-/* modify code starts */
 .post code {
-  font: 0.8em droid-sans-mono-1, droid-sans-mono-2, monospace;
-  border: 1px solid rgba(145, 77, 0, 0.15);
-  border-radius: 0.2em;
-  padding: 0.0em 0.1em;
-  background: rgba(145, 77, 0, 0.03);
+  border: 1px solid #ddd;
+  background: rgba(235, 213, 174, 0.03);
+  padding: 0 .2em;
 }
-.post .highlight {
-  background: #ffb;
-  border-radius: 0.3em;
-  padding: 0.8em;
-  color: white;
-  background: #222;
-  margin-top: -0.8em;
-  margin-bottom: 0.9em;
+
+.post pre code {
+  border: none;
 }
-.post .highlight pre {
-  font: 0.8em droid-sans-mono-1, droid-sans-mono-2, monospace;
-  line-height: 1.25em;
-  display: block;
-}
+
 /* modify ends */
 
 .align-center {
