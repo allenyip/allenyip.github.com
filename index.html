@@ -1,5 +1,5 @@
 ---
-layout: index
+layout: default
 title: Allen Yip
 ---
 
@@ -10,15 +10,8 @@ title: Allen Yip
       <time datetime="{{ post.date | date_to_xmlschema }}">
         {{ post.date | date: '%d %b %Y' }}
       </time>
-
-      <div class="description">
-        <a href="{{ post.url }}">{{ post.title }}</a>
-
-        {% if post.tagline %}
-        <p class="tagline">{{ post.tagline }}</p>
-        {% endif %}
-      </div>
-    </li>
+      <div class="description"><a href="{{ post.url }}">{{ post.title }}</a></div>
+     </li>
     {% endfor %}
   </ul>
 
@@ -35,4 +28,5 @@ title: Allen Yip
     <a href="/page{{ paginator.next_page }}">next &raquo;</a>
     {% endif %}
   </div>
+
 </div>
