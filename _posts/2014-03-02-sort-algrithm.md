@@ -187,24 +187,26 @@ concatenate lists B[0],B[1]...B[n-1] together
 
 ##**算法比较**
 
-|| 算法名称 || 平均情况 || 最好情况 || 最坏情况 || 辅助存储 || 稳定性 ||
+```c
+算法名称    平均情况    最好情况    最坏情况    辅助存储    稳定性
 
-|| 冒泡排序 || O(n2) || O(n) || O(n2) || O(1) || 稳定 ||
+冒泡排序    O(n2)       O(n)        O(n2)       O(1)        稳定
 
-|| 选择排序 || O(n2) || O(n2) || O(n2) || O(1) || 不稳定 ||
+选择排序    O(n2)       O(n2)       O(n2)       O(1)        不稳定
 
-|| 插入排序 || O(n2) || O(n) || O(n2) || O(1) || 稳定 ||
+插入排序    O(n2)       O(n)        O(n2)       O(1)        稳定
 
-|| 归并排序 || O(nlogn) || O(nlogn) || O(nlogn) || O(n) || 稳定 ||
+归并排序    O(nlogn)    O(nlogn)    O(nlogn)    O(n)        稳定
 
-|| 堆排序 || O(nlogn) || O(nlogn) || O(nlogn) || O(1) || 不稳定 ||
+堆  排序    O(nlogn)    O(nlogn)    O(nlogn)    O(1)        不稳定
 
-|| 快速排序 || O(nlogn) || O(nlogn) || O(n2) || O(logn) || 不稳定 ||
+快速排序    O(nlogn)    O(nlogn)    O(n2)       O(logn)     不稳定
 
-|| 计数排序 || O(x) || O(x) || O(x) ||  ||
+计数排序    O(x)       O(x)         O(x)
 
-|| 基数排序 || O(n) || O(n) || O(n) || O(n) || 稳定 ||
+基数排序    O(n)       O(n)         O(n)        O(n)        稳定
 
-|| 桶排序 || O(n) || O(n) || O(n) || xxx || 不稳定 ||
+桶  排序    O(n)       O(n)         O(n)        xxx         不稳定
+```
 
 注：O(1) < O(logn) < O(n) < O(nlogn) < O(n^2) < O(n^3) < O(2^n) < O(n!) < O(n^n)
