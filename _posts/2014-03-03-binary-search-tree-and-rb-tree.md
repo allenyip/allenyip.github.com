@@ -77,6 +77,7 @@ while y !=NIL and x == y.right
   x = y
   y = y.p
 return y
+```
 
 ```c
 TREE_INSERT(T, z)
