@@ -11,7 +11,7 @@ layout: post
 
 1，每个变量声明都加上 var 关键字。
 
-2，常量命名使用 NAMES_LIKE_THIS，闲的话可在注释中加上 @const 注释。
+2，常量命名使用 NAMES_LIKE _THIS，闲的话可在注释中加上 @const 注释。
 
 3，每个语句结尾加上分号。
 
