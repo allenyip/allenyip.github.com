@@ -7,8 +7,6 @@ layout: post
 ---
 在人工智能课上做了一个介绍 Prolog 语言的课题，也因此才有机会去研究困惑我许久的逻辑编程到底是什么东西。（没有压力就没有动力，我是一头懒惰的猪。）本来这篇文章只想谈谈 Prolog 语言，没想到越写越多，最后成了「Prolog, 逻辑编程和编程范式」。
 
----
-
 ##**编程范式**
 
 基于类编程和基于原型编程、声明式编程和命令式编程、面向对象编程和面向过程编程...这些所谓的编程范式实在是混乱又复杂，而维基娘对于编程范式的定义倒是简洁：
@@ -71,8 +69,8 @@ Prolog 简单高效，解决汉诺塔问题只需要两行代码：
 {% highlight prolog %}
 
 // prolog hanoi
-move(1,X,Y,\_):-write('Move top disk from '),write(X),write(' to '), write(Y), nl.   
-move(N,X,Y,Z):-N>1,M is N-1,move(M,X,Z,Y),move(1,X,Y,\_),move(M,Z,Y,X). 
+move(1,X,Y,\_):-write('Move top disk from '),write(X),write(' to '), write(Y), nl.
+move(N,X,Y,Z):-N>1,M is N-1,move(M,X,Z,Y),move(1,X,Y,\_),move(M,Z,Y,X).
 
 {% endhighlight %}
 
@@ -95,7 +93,7 @@ father(yeye,baba).
 father(baba,wo).
 mother(nainai,baba).
 mother(mama,wo).
- 
+
 /* 规则 */
 grandfather(X,Y):-father(X,Z),father(Z,Y).
 grandmother(X,Y):-mother(X,Z),father(Z,Y).

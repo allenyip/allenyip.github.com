@@ -7,7 +7,13 @@ layout: post
 ---
 以下为个人精简的 Java 的风格指南（[戳我](https://code.google.com/p/google-styleguide/)）。
 
-##**源文件基础**
+* [源文件基础](#basi)
+* [源文件结构](#stru)
+* [格式](#form)
+* [编程实践](#prac)
+* [JavaDoc](#doc)
+
+<h2 id="basi">源文件基础</h2>
 
 1，源文件名为其最顶层类名，编码采用 UTF-8。
 
@@ -15,7 +21,7 @@ layout: post
 
 3，优先使用转义序列，而非八进制或 Unicode。
 
-##**源文件结构**
+<h2 id="stru">源文件结构</h2>
 
 1，一个源文件应包含：许可证或版权信息、package 语句、import 语句和一个顶级类，这四部分用空行分隔。
 
@@ -41,10 +47,10 @@ layout: post
 
 4，类中的多个构造函数或同名方法应顺序出现在一起。
 
-##**格式**
+<h2 id="form">格式</h2>
 
 1，大括号。
-	
+
 	1-1，if, else, for, do, while 语句应使用大括号。
 
 	1-2，非空块和块状结构中大括号遵循 Kernighan 和 Ritchie 风格（[Egyptian Brackets](http://www.codinghorror.com/blog/2012/07/new-programming-jargon.html)）。
@@ -64,7 +70,7 @@ layout: post
 3，每行一条语句。
 
 4，列长度限制使用 80 或 100个字符，超过应换行，除以下例外：
-	
+
 	* 不可能满足列限制的行，如 Javadoc 中的一个长 URL，或是一个长的 JSNI 方法参考)。
 
 	* package 和 import 语句。
@@ -72,7 +78,7 @@ layout: post
 	* 注释中那些可能被剪切并粘贴到 shell 中的命令行。
 
 5，自动换行
-	
+
 	5-1，在更高的语法级别处断开：
 
 		* 如果在非赋值运算符处断开，那么在该符号前断开，如 + 将位于下一行。
@@ -145,8 +151,7 @@ layout: post
 
 14，类和成员的 modifiers 如果存在，则按Java语言规范中推荐的顺序（public protected private abstract static final transient volatile synchronized native strictfp）出现。
 
-
-##**编程实践**
+<h2 id="prac">编程实践</h2>
 
 1，能用 @Override 则用。
 
@@ -156,10 +161,10 @@ layout: post
 
 4，禁用 Finalizers。
 
-##**Javadoc**
+<h2 id="doc">JavaDoc</h2>
 
 1，基本形式如下
-	
+
 	/** An especially short bit of Javadoc. */
 
 	/**

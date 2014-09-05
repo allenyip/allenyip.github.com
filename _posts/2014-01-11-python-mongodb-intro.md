@@ -7,43 +7,40 @@ layout: post
 ---
 由于第三方势力的良性压迫，最近终于有时间正经学学 [Python](http://www.python.org/) 了，本文用于记录我所了解的Python。
 
-##**学习资料**
+* [引言](#intr)
+* [获取并运行Python](#getp)
+* [类型和运算](#type)
+	* [数字](#numb)
+	* [字符串](#stri)
+	* [列表](#list)
+	* [字典](#dict)
+	* [元组](#yuan)
+	* [文件](#file)
+* [语句和语法](#gram)
+* [函数](#func)
+	* [多态](#poly)
+	* [作用域](#zone)
+* [学习资料](#mete)
 
-* **[A Byte of Python](http://swaroopch.com/book/python/)** by Swaroop C H ([中文](http://sebug.net/paper/python/))
-
-* **[Learn Python The Hard Way](http://learnpythonthehardway.org/)** by Zed. A. Shaw ([中文](http://sebug.net/paper/books/LearnPythonTheHardWay/))
-
-* **Learning Python** by Mark Lutz
-
-* **Dive into Python** by Mark Pilgrim
-
-* **Python Cookbook** by  Alex Martelli
-
-* **官方文档，Pydoc等**
-
-##**引言**
+<h2 id="intr">引言</h2>
 
 著名码农 [Eric Raymond](http://www.linuxjournal.com/article/3882) 早在千禧年就建议过大家使用Python进行编程。与Java的成熟和复杂不同，Python简单易用，并且仍在快速的发展中（3.x的变革），用Python实现了几个功能之后不禁感叹其简单的代码结构和强大的开发效率，完全颠覆了之前对其「脚本语言」的定义，除去脚本语言，Python至少还支持了动态语言，面向对象，函数式编程等特性。同时，它“只用一种方法完成一件事”的哲学尽管损失了创造性，却保证了精益求精的高效性和实用性。
 
-##**获取Python**
+<h2 id="getp">获取并运行Python</h2>
 
 Python完全免费且开源，大部分Linux/Mac系统都默认安装了Python，在 [官方网站](http://www.python.org/) 上也可以轻松地获取最新版本的Python，支持Windows, Linux/Unix, Mac等操作系统。除此之外，官网还提供了详尽的文档共开发者阅读。
-
-##**运行Python**
 
 和Java类似，Python程序执行时，会先将源码(.py)编译成字节码(.pyc)，之后在PVM（Python虚拟机）上运行。它没有像C/C++那样编译成特定机器的二进制代码，尽管牺牲了一定的运行速度，却保证了跨平台的特性。
 
 另外，Python语言包括三种实现方式：CPython（标准Python）、Jython（与Java集成的Python）和IronPython（与.NET/Mono集成的Python）。
 
-##**动态类型**
+<h2 id="type">类型和运算</h2>
 
 与Java静态类型不同，Python的类型是动态的。即类型属于对象，而不是变量。Python同样支持自动垃圾回收，因此开发者不需要考虑内存释放问题。
 
-##**类型和运算**
-
 **Python程序可以分解为模块、语句、表达式和对象**，其中内置对象类型有以下几种：数字、字符串、列表、字典、元组、文件、集合和其他类型。
 
-###**数字**
+<h3 id="numb">数字</h3>
 
 数字类型包括：整数和浮点数、复数和分数等，提供的运算符包括+、-、*、/、%、>>、**、&等，内置数学函数包括pow、abs、round等，还可加载random、math等模块进行数字处理。
 
@@ -61,7 +58,7 @@ y = Fraction(4, 6)
 print (x + y)
 ```
 
-###**字符串**
+<h3 id="stri">字符串</h3>
 
 字符串包括：单引号/双引号字符串('python', "python")、三引号字符串('''python''')、转义字符('\t')、Raw字符串(r'python')等。单引号和双引号字符串在Python中是一样的；三引号常用来编写多行字符串块和注释；特殊字节可以使用转义序列表示，同时可以使用Raw字符串抑制转义。
 
@@ -69,23 +66,23 @@ print (x + y)
 
 需要注意到是，字符串是不可变类型，要修改一个字符串（字符序列），需要使用合并、分片等工具来建立并赋予新的字符串。（Python中的不可变类型包括数字、字符串、元组和不可变集合；可变类型包括列表、字典和可变集合）
 
-###**列表**
+<h3 id="list">列表</h3>
 
 列表是任意对象的有序集合，和字符串一样可通过偏移读取，不同的是列表是长度和值都是可变的。
 
 常用的列表操作包括：求长(len([1,'a',3]))、合并(L1+L2)、重复(L*2)、迭代(for x in L:)、增长(L.append)、插入(L.insert())、排序(L.sort())、删除(L.pop())...
 
-###**字典**
+<h3 id="dict">字典</h3>
 
 字典是任意对象的无序集合，可通过键来访问，长度和值也可改变。
 
 常用的字典操作包括：求长(len({'k1':'v1','k2':2}))、获取(D.get(key, default))、合并(D.update(D2))、新增/修改(D[key]=1)、删除(D.pop(key))...
 
-###**元组**
+<h3 id="yuan">元组</h3>
 
 元组是任意对象的有序集合，和列表一样可通过偏移读取，不同的是元组是不可变的。除了改变值的方法外，其基本操作与列表类似。
 
-###**文件**
+<h3 id="file">文件</h3>
 
 Python内置了简单的文件操作方法，如：
 
@@ -129,7 +126,7 @@ L2 = [1,2,3]
 L1 == L2, L1 is L2 # True, False
 ```
 
-##**语句和语法**
+<h2 id="gram">语句和语法</h2>
 
 **Python程序可以分解为模块、语句、表达式和对象**，语句包括：赋值、调用、if/elif/else、for/else、while/else、pass（空占位符）、break、continue、def（函数和方法）、return、yeild（生成器函数）、global、import、from、class、try/except/finally、raise（触发异常）、assert（调试检查）、with/as、del
 
@@ -137,7 +134,7 @@ L1 == L2, L1 is L2 # True, False
 
 TBD：其余语句语法大同小异，暂不赘述。
 
-##**函数**
+<h2 id="func">函数</h2>
 
 * def是可执行的代码，就是说Python执行了def语句后函数才存在。
 
@@ -157,7 +154,7 @@ TBD：其余语句语法大同小异，暂不赘述。
 
 * 参数、返回值以及变量不是声明。
 
-###**多态**
+<h3 id="poly">多态</h3>
 
 多态指的是一个操作的意义取决于被操作对象的类型，比如：
 
@@ -181,7 +178,7 @@ intersect("SPAM","SPCM") # ['S','P','M']
 intersect([1,2,3],(1,4)) # [1]
 ```
 
-###**作用域**
+<h3 id="zone">作用域</h3>
 
 变量名解析的LEGB法则：
 
@@ -201,5 +198,19 @@ def func():
 func()
 print(x,y) # 99,22
 ```
+
+<h2 id="mete">学习资料</h2>
+
+* **[A Byte of Python](http://swaroopch.com/book/python/)** by Swaroop C H ([中文](http://sebug.net/paper/python/))
+
+* **[Learn Python The Hard Way](http://learnpythonthehardway.org/)** by Zed. A. Shaw ([中文](http://sebug.net/paper/books/LearnPythonTheHardWay/))
+
+* **Learning Python** by Mark Lutz
+
+* **Dive into Python** by Mark Pilgrim
+
+* **Python Cookbook** by  Alex Martelli
+
+* **官方文档，Pydoc等**
 
 TBD...
