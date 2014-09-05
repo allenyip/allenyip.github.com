@@ -8,7 +8,26 @@ layout: post
 
 ##**基本数据类型**
 
-1，Java里的数据类型分为基本类型和引用类型。基本类型可直接创建赋值并存储于**栈**中，引用类型通过new关键字创建对象并存储于**堆**中。
+1，Java里的数据类型分为基本类型和引用类型。基本类型可直接创建赋值并存储于**栈**中，引用类型或通过new关键字创建并存储于**堆**中，或直接存储于String常量池中。
+
+> Java有六个地方可以存储数据，按照存取速度排列：
+
+> 1. 寄存器Register：位于处理器内部，由编译器分配，无法控制
+
+> 2. 栈Stack：存放基本类型的数据和对象/数组的引用，但对象本身不存在栈中，而存在堆中（new出来的对象）或者字符串常量池中
+
+> 3. 堆Heap：堆比栈更加灵活，无需知道分配了多少空间，也无需知道对象存活多长时间。
+
+> 4. 静态存储：存放程序运行时一直存在的数据
+
+> 5. 常量存储：直接存放在程序代码内部，存放字符串常量和基本类型常量（public static final）
+
+> 6. 非RAM存储：如硬盘等永久存储空间，完全存活于程序之外，不受程序的任何控制。
+> 注：对于栈和常量池中的对象可以共享，对于堆中的对象不可以共享。栈中的数据大小和生命周期是可以确定的，当没有引用指向数据时，这个数据就会消失。堆中的对象的由垃圾回收器负责回收，因此大小和生命周期不需要确定，具有很大的灵活性。
+
+> 注2：对于字符串：其对象的引用都是存储在栈中的，如果是编译期已经创建好(直接用双引号定义的)的就存储在常量池中，如果是运行期（new出来的）才能确定的就存储在堆中。对于equals相等的字符串，在常量池中永远只有一份，在堆中有多份。
+
+String s = new String(“xyz”);产生几个对象？如果常量池中有xyz则只在堆中产生一个拷贝对象（一个）；如果常量池中没有xyz，则在常量池中创建xyz，然后在堆中创建拷贝（两个）。
 
 2，由于JVM是独立于底层的机器，基本数据类型大小是固定的，因此Java也不需要sizeof操作。基本数据类型及其大小如下所示：
 
@@ -185,13 +204,13 @@ f()
 
 假设有一个Dog类，其对象的创建过程如下：
 
-* 1. 首次创建或者Dog类的静态方法/静态域（构造器实际上也是静态方法）首次被访问时，Java解释器会查找类路径以定位Dog.class文件。
+1. 首次创建或者Dog类的静态方法/静态域（构造器实际上也是静态方法）首次被访问时，Java解释器会查找类路径以定位Dog.class文件。
 
-* 2. 载入Dog.class，有关静态初始化的所有动作都会执行，并且**只执行一次**。
+2. 载入Dog.class，有关静态初始化的所有动作都会执行，并且**只执行一次**。
 
-* 3. 当用new Dog()创建对象时，首先在堆上为Dog对象分配足够的存储空间。
+3. 当用new Dog()创建对象时，首先在堆上为Dog对象分配足够的存储空间。
 
-* 4. 这块存储空间被清零，即自动将Dog对象中的基本类型数据设置成默认值，引用类型设置成null。
+4. 这块存储空间被清零，即自动将Dog对象中的基本类型数据设置成默认值，引用类型设置成null。
 
 * 5. 执行所有出现于字段定义处的初始化动作。
 
@@ -205,11 +224,11 @@ Java中的访问权限控制等级从大到小依次为：public、protected、�
 
 Java解释器的运行过程如下：
 
-* 1. 找出环境变量CLASSPATH，CLASSPATH包括一个或多个目录，用于查找.class文件的根目录。
+1. 找出环境变量CLASSPATH，CLASSPATH包括一个或多个目录，用于查找.class文件的根目录。
 
-* 2. 从根目录开始，解释器获取包的名称并将每个句点替换成反斜杠，产生一个路径。
+2. 从根目录开始，解释器获取包的名称并将每个句点替换成反斜杠，产生一个路径。
 
-* 3. 将路径与CLASSPATH链接即为所要查找的.class文件路径。
+3. 将路径与CLASSPATH链接即为所要查找的.class文件路径。
 
 类的访问权限总是public或包访问权限（内部类除外），如果不希望该类被访问可以把所有构造器都指定为private，此时，除了通过类内部的static成员，其他类无法直接访问该类。
 
@@ -384,15 +403,15 @@ fd2:i4=13. INT_5=18
 
 4，类的构造器调用遵循以下顺序
 
-* 0. 调用static初始化语句。
+1. 调用static初始化语句。
 
-* 0.5. 将要分配给对象的存储空间初始化成二进制零。
+2. 将要分配给对象的存储空间初始化成二进制零。
 
-* 1. 调用基类构造器。
+3. 调用基类构造器。
 
-* 2. 按声明顺序调用成员的初始化方法。
+4. 按声明顺序调用成员的初始化方法。
 
-* 3. 调用导出类构造器的主体。
+5. 调用导出类构造器的主体。
 
 ##**接口**
 
@@ -428,21 +447,21 @@ public interface A {
 
 相同点
 
-* 1. 都代表系统的抽象层,当一个系统使用一颗继承树上的类时,应该尽量把引用变量声明为继承树的上层抽象类型,这样可以提高两个系统之间的松耦合
+* 都代表系统的抽象层,当一个系统使用一颗继承树上的类时,应该尽量把引用变量声明为继承树的上层抽象类型,这样可以提高两个系统之间的松耦合
 
-* 2. 都不能被实例化
+* 都不能被实例化
 
-* 3. 都包含抽象方法,这些抽象方法用于描述系统能提供哪些服务,但不提供具体的实现
+* 都包含抽象方法,这些抽象方法用于描述系统能提供哪些服务,但不提供具体的实现
 
 不同点
 
-* 1. 抽象类中可以对部分方法进行实现，而接口中全部是抽象方法。
+* 抽象类中可以对部分方法进行实现，而接口中全部是抽象方法。
 
-* 2. 一个类只能继承一个父类（抽象类），却可以实现多个接口。
+* 一个类只能继承一个父类（抽象类），却可以实现多个接口。
 
-* 3. 接口可以继承多个接口，抽象类只能继承一个抽象类。
+* 接口可以继承多个接口，抽象类只能继承一个抽象类。
 
-* 4. 接口中的变量默认都是public static final常量，方法都是public abstract。
+* 接口中的变量默认都是public static final常量，方法都是public abstract。
 
 ##**内部类**
 
@@ -530,6 +549,61 @@ class Outter{
 
 9，java.util.Collection是一个集合接口，定义了一些集合基本操作的通用方法（add/remove）；java.util.Collections是一个包装类，定义了一些集合操作的静态多态方法（sort/shuffle/synchronizedXXX），类似一个工具类。另：Arrays工具类也提供了一些对数组的静态操作方法。
 
+10，Java集合中，判断两个对象是否相等的规则是：判断两个对象的hashCode是否相等，若不相等，则认为两个对象不相等，若hashCode相等则继续判断两个对象用equals运算是否相等，若相等则两个对象相等。
+
+```java
+public class HashTest {
+	private int i;
+
+	public int getI() {
+		return i;
+	}
+
+	public void setI(int i) {
+		this.i = i;
+	}
+
+	// 若没有重写equals方法，对象不相等
+	public boolean equals(Object object) {
+		if (object == null) {
+			return false;
+		}
+		if (object == this) {
+			return true;
+		}
+		if (!(object instanceof HashTest)) {
+			return false;
+		}
+		HashTest other = (HashTest) object;
+		if (other.getI() == this.getI()) {
+			return true;
+		}
+		return false;
+
+	// 若没有重写hashCode方法，对象不相等
+	public int hashCode() {
+		return i % 10;
+	}
+
+	public final static void main(String[] args) {
+		HashTest a = new HashTest();
+		HashTest b = new HashTest();
+		a.setI(1);
+		b.setI(1);
+		Set<HashTest> set = new HashSet<HashTest>();
+		set.add(a);
+		set.add(b);
+		System.out.println(a.hashCode() == b.hashCode());
+		System.out.println(a.equals(b));
+		System.out.println(set);
+	}
+} /* Output:
+true
+true
+[com.allenyip.test.HashTest@1]
+*/
+```
+
 ##**异常**
 
 1，Throwable类是所有异常类的基类，他有两个派生类Error和Exception：Error是程序无法处理的错误，如StackOverFlow/OutOfMemoryError等，此类错误通常交给JVM处理。Exception则是程序本身可以处理的异常。
@@ -581,19 +655,19 @@ Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 4
 
 1，Java字符串类(java.lang.String)是Java中使用最多的类，也是最为特殊的一个类。
 
-* 1、String类是final的，不可被继承。public final class String。
+* String类是final的，不可被继承。public final class String。
 
-* 2、String类是的本质是字符数组char[], 并且其值不可改变。private final char value[];
+* String类是的本质是字符数组char[], 并且其值不可改变。private final char value[];
 
-* 3、String类对象有个特殊的创建的方式，就是直接指定比如String x = "abc"，"abc"就表示一个字符串对象。而x是"abc"对象的地址，也叫做"abc"对象的引用。
+* String类对象有个特殊的创建的方式，就是直接指定比如String x = "abc"，"abc"就表示一个字符串对象。而x是"abc"对象的地址，也叫做"abc"对象的引用。
 
-* 4、String对象可以通过“+”串联。串联后会生成新的字符串。也可以通过concat()来串联。
+* String对象可以通过“+”串联。串联后会生成新的字符串。也可以通过concat()来串联。
 
-* 5、创建字符串的方式很多，归纳起来有三类：1）使用new关键字创建字符串，比如String s1 = new String("abc");2）直接指定。比如String s2 = "abc";3）使用串联生成新的字符串。比如String s3 = "ab" + "c";
+* 创建字符串的方式很多，归纳起来有三类：1）使用new关键字创建字符串，比如String s1 = new String("abc");2）直接指定。比如String s2 = "abc";3）使用串联生成新的字符串。比如String s3 = "ab" + "c";
 
-* 6、Java运行时会维护一个String Pool（String池），用来存放运行时中产生的各种字符串	，并且池中的字符串的内容不重复。
+* Java运行时会维护一个String Pool（String池），用来存放运行时中产生的各种字符串	，并且池中的字符串的内容不重复。
 
-* 7、intern方法用于常量池中是否有相同Unicode的字符串常量，如果有，则返回其的引用， 如果没有，则在常量池中增加一个Unicode等于str的字符串并返回它的引用
+* intern方法用于常量池中是否有相同Unicode的字符串常量，如果有，则返回其的引用， 如果没有，则在常量池中增加一个Unicode等于str的字符串并返回它的引用
 
 ```java
 public class Test {
@@ -621,13 +695,13 @@ true
 
 2，String对象的创建根据以下原理：
 
-* 原理1：当使用任何方式来创建一个字符串对象s时，Java运行时（运行中JVM）会拿着这个X在String池中找是否存在内容相同的字符串对象，如果不存在，则在池中创建一个字符串s，否则，不在池中添加。
+1. 当使用任何方式来创建一个字符串对象s时，Java运行时（运行中JVM）会拿着这个X在String池中找是否存在内容相同的字符串对象，如果不存在，则在池中创建一个字符串s，否则，不在池中添加。
 
-* 原理2：Java中，只要使用new关键字来创建对象，则一定会（在堆区或栈区）创建一个新的对象。
+2. Java中，只要使用new关键字来创建对象，则一定会（在堆区或栈区）创建一个新的对象。
 
-* 原理3：使用直接指定或者使用纯字符串串联来创建String对象，则仅仅会检查维护String池中的字符串，池中没有就在池中创建一个，有则罢了！但绝不会在堆栈区再去创建该String对象。
+3. 使用直接指定或者使用纯字符串串联来创建String对象，则仅仅会检查维护String池中的字符串，池中没有就在池中创建一个，有则罢了！但绝不会在堆栈区再去创建该String对象。
 
-* 原理4：使用包含变量的表达式来创建String对象，则不仅会检查维护String池，而且还会在堆栈区创建一个String对象。
+4. 使用包含变量的表达式来创建String对象，则不仅会检查维护String池，而且还会在堆栈区创建一个String对象。
 
 3，String类的主要用法：
 
@@ -650,3 +724,686 @@ true
 * 转换成字符数组 s.toCharArray();
 
 * 分割成字符串数组 s.split(regex);
+
+4，String StringBuffer StrnigBuilder的区别
+
+1. String是长度不可变的字符串常量(final类)，StringBuffer线程安全的长度可变的字符串变量，StrnigBuilder是非线程安全的长度可变的字符串变量。
+
+2. 如果操作少量数据，使用String；单线程操作大量数据，使用StrnigBuidler；多线程操作大量数据，使用StringBuffer。
+
+3. String的“+”操作性能极差，若有大量此类操作则应考虑使用StringBuffer/StringBuilder。（实际上在JVM内部，String的+操作也会借助StringBuffer完成）
+
+4. 使用StringBuffer/StringBuilder应尽可能指定其容量Capacity（默认16）。
+
+5. StringBuilder相比使用 StringBuffer 仅能获得 10%~15% 左右的性能提升，但却要冒多线程不安全的风险，因此除非对性能要求很高，否则不建议使用。
+
+##**类型信息**
+
+1，在java中，所有的类型转换都是在运行时进行正确性检查的。这也是RTTI/RunTime Type Information的含义：在运行时，识别一个对象的类型信息（如类名、继承的基类、实现的接口等）。传统的RTTI在**编译时**已知道了所有类型；反射机制则在程序运行时发现和使用类型信息。
+
+2，Java使用一个Class对象来创建类的所有“常规”对象，以执行其RTTI。生成Class对象的过程如下：当我们编写一个新的java类时，JVM就会帮我们编译成class对象，存放在同名的.class文件中。在运行时，当需要生成这个类的对象，JVM就会检查此类是否已经装载内存中。若是没有装载，则把.class文件装入到内存中（RTTI从本地获取，反射从网络获取）。若是装载，则根据class文件生成实例对象。
+
+```java
+class Candy {
+  static { System.out.println("Loading Candy"); }
+}
+
+class Gum {
+  static { System.out.println("Loading Gum"); }
+}
+
+class Cookie {
+  static { System.out.println("Loading Cookie"); }
+}
+
+public class SweetShop {
+  public static void main(String[] args) {
+    System.out.println("inside main");
+    new Candy();
+    System.out.println("After creating Candy");
+    try {
+      Class.forName("Gum");
+    } catch(ClassNotFoundException e) {
+      System.out.println("Couldn't find Gum");
+    }
+    System.out.println("After Class.forName(\"Gum\")");
+    new Cookie();
+    System.out.println("After creating Cookie");
+  }
+} /* Output:
+inside main
+Loading Candy
+After creating Candy
+Loading Gum
+After Class.forName("Gum")
+Loading Cookie
+After creating Cookie
+*/
+```
+
+3，获取Class实例有三种方式：利用对象调用getClass()方法；使用Class类的静态方法forName()，用类的名字获取一个Class实例；运用.class的方式来获取Class实例，对于基本数据类型的封装类，还可以采用.TYPE来获取相对应的基本数据类型的Class实例。
+
+```java
+public class ClassTest {
+	public static void main(String [] args)throws Exception{
+	    String str1="abc";
+	    Class cls1=str1.getClass();
+	    Class cls2=Class.forName("java.lang.String"); // 必须是全名！
+	    Class cls3=String.class;
+	    System.out.println(cls1 == cls2);
+	    System.out.println(cls1 == cls3);
+	    Integer i = new Integer(1);
+	    System.out.println(i.TYPE);
+	}
+} /* Output:
+true
+true
+int
+*/
+```
+
+4，当不知道对象的类型而又需要构造对象时，可以使用newObj = oldObj.newInstance()方法，前提是这个类有默认的构造函数。该方法可能会产生InstantiationException和IllegalAccessException两种运行时异常。
+
+5，使用instanceOf/isInstance和Class的==/equals的区别是，前者判断的是该类或者该类的派生类，后者只判断是否为该类。
+
+6，代理分为静态代理和动态代理：静态代理由程序员创建或特定工具自动生成源代码，再对其编译。在程序运行前，代理类的.class文件就已经存在了；动态代理在程序运行时，运用反射机制动态创建而成。
+
+```java
+//接口
+interface Interface {
+	void doSomething();
+	void somethingElse(String arg);
+}
+//目标对象
+class RealObject implement Interface {
+	public void doSomething() {
+		System.out.println("RealObject doSomething");
+	}
+	public void somethingElse(String arg) {
+		System.out.println("RealObject somethingElse" + arg);
+	}
+}
+//简单代理对象
+class SimpleProxy implements Interface {
+	private Interface proxied;
+	public SimpleProxy(Interface proxied) {
+		this.proxied = proxied;
+	}
+	public void doSomething() {
+		System.out.println("SimpleProxy doSomething");
+		proxied.doSomething();
+	}
+	public void somethingElse(String arg) {
+		System.out.println("SimpleProxy somethingElse"+ arg);
+		proxied.somethingElse(arg);
+	}
+}
+Class SimpleProxyDemo {
+	public static void consumer(Interface iface) {
+		iface.doSomething();
+		iface.somethingElse("TestProxy");
+	}
+	public static void main(String[] args) {
+		//不用代理
+		consumer(new RealObject());
+		//使用代理
+		consumer(new SimpleProxy(new RealObject()));
+	}
+}
+ /* Output:
+RealObject doSomething
+RealObjectsomethingElse TestProxy
+SimpleProxy doSomething
+RealObject doSomething
+SimpleProxy somethingElse TestProxy
+RealObject somethingElse TestProxy
+*/
+```
+
+7，Java内部的动态代理是针对接口的动态代理（可以使用第三方的cglib实现对类的动态代理），它需要：**实现InvocationHandler接口并且实现其invoke()方法**，该方法是代理调用目标对象方法以及提供额外操作的方法；**使用Proxy.newProxyInstance(类加载器, 代理接口列表,InvocationHandler对象)方法创建实现了指定接口的动态代理**。
+
+```java
+import java.lang.reflect.*;
+//接口
+interface Interface {
+	void doSomething();
+	void somethingElse(String arg);
+}
+//目标对象
+class RealObject implements Interface {
+	public void doSomething() {
+		System.out.println("RealObject doSomething");
+	}
+	public void somethingElse(String arg) {
+		System.out.println("RealObject somethingElse" + arg);
+	}
+}
+//代理处理类
+class DynamicProxyHandler implements InvocationHandler {
+	private Object proxied;
+	public DynamicProxyHandler(Object proxied){
+		this.proxied = proxied;
+	}
+	//动态代理调用目标对象的方法
+	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable{
+		System.out.println("Dynamic proxy invoke");
+		return method.invoke(proxied, args);
+	}
+}
+class SimpleDynamicProxy {
+	public static void consumer(Interface iface){
+		iface.doSomething();
+		iface.somethingElse("DynamicProxy");
+	}
+	public static void main(String[] args){
+		RealObject real = new RealObject();
+		//不用代理
+		consumer(real);
+		//创建动态代理
+		Interface proxy = (Interface) Proxy.newProxyInstance(
+						Interface.class.getClassLoader(),
+						new Class[]{Interface.class},
+						new DynamicProxyHandler(real)
+		);
+		consumer(proxy);
+	}
+} /* Output:
+RealObject doSomething
+RealObject somethingElseDynamicProxy
+Dynamic proxy invoke
+RealObject doSomething
+Dynamic proxy invoke
+RealObject somethingElseDynamicProxy
+*/
+```
+
+##**泛型**
+
+1，泛型是对Java语言的类型系统的一种扩展，以支持创建可以按类型进行参数化的类。使用泛型的动机如下：
+
+```java
+// 不用泛型，需要强制转换类型，混乱麻烦且不安全
+List myIntList = new LinkedList(); //1
+myIntList.add(newInteger(0)); //2
+Integer x = (Integer)myIntList.iterator().next(); //3
+
+// 使用了泛型则安全简便
+List<Integer> myIntList = newLinkedList<Integer>(); //1’
+myIntList.add(newInteger(0)); //2’
+Integerx = myIntList.iterator().next(); //3’
+```
+
+2，可以泛型将其理解成编译器层次的概念，在编译后的Java字节代码中是不包含泛型信息的。在编译时会执行**类型擦除**，即清除类型参数的相关信息，并且再必要的时候添加类型检查和类型转换的方法。（泛型中的所有动作都发生在边界处：对传递进来的值进行额外的编译期检查，并插入对传递出去的值的转型）
+
+```java
+public interface List<E> {
+	void add(E x);
+	Iterator<E> iterator();
+}
+// 转换后的接口可以理解成：
+public interface IntegerList {
+	void add(Integer x)
+	Iterator<Integer> iterator();
+}
+/* 重载时会导致编译时错误
+ * List<String>和List<Integer>在运行时是相同类型，都被擦除成原生类型List
+ */
+public class Erasure{
+    public void test(List<String> ls){
+        System.out.println("Sting");
+    }
+    public void test(List<Integer> li){
+        System.out.println("Integer");
+    }
+}
+```
+
+3，如果Foo是Bar的子类型，G是一种带泛型的类型，则G<Foo>不是G<Bar>的子类型。
+
+4，通配符“?”指定可以使用任何类型的集合作为参数，表示类型未知，因此也无法添加除null意外的元素。使用通配符的规则如下：如果你想从一个数据类型里获取数据，使用 ? extends 通配符；如果你想把对象写入一个数据结构里，使用 ? super 通配符；如果你既想存，又想取，那就别用通配符。
+
+5，使用泛型方法时，类型T应该位于返回值之前。关于泛型的一些种类，见http://www.cnblogs.com/sunwei2012/archive/2010/10/08/1845938.html。
+
+```java
+static void fromArrayToCollection(Object[]a, Collection< ?> c) {
+	for (Object o:a) {
+	c.add(o); //compile time error
+	}
+}
+static <T> void fromArrayToCollection(T[] a, Collection<T>c){
+	for(T o : a) {
+		c.add(o);// correct
+	}
+}
+```
+
+##**枚举**
+
+关于枚举的七个用法：
+
+```java
+// 1. 常量
+public enum Color {
+  RED, GREEN, BLANK, YELLOW
+}
+
+// 2. switch
+enum Signal {
+	GREEN, YELLOW, RED
+}
+public class TrafficLight {
+	Signal color = Signal.RED;
+	public void change() {
+		switch (color) {
+		case RED:
+			color = Signal.GREEN;
+			break;
+		case YELLOW:
+			color = Signal.RED;
+			break;
+		case GREEN:
+			color = Signal.YELLOW;
+			break;
+		}
+	}
+}
+
+// 3. 向枚举中添加新方法
+// 必须在enum实例序列的最后添加一个分号
+// 必须先定义 enum 实例
+public enum Color {
+	RED("红色", 1), GREEN("绿色", 2), BLANK("白色", 3), YELLO("黄色", 4);
+	// 成员变量
+	private String name;
+	private int index;
+	// 构造方法
+	private Color(String name, int index) {
+		this.name = name;
+		this.index = index;
+	}
+	// 普通方法
+	public static String getName(int index) {
+		for (Color c : Color.values()) {
+			if (c.getIndex() == index) {
+				return c.name;
+			}
+		}
+		return null;
+	}
+	// get set 方法
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getIndex() {
+		return index;
+	}
+	public void setIndex(int index) {
+		this.index = index;
+	}
+}
+
+// 4. 覆盖枚举的方法
+public enum Color {
+	RED("红色", 1), GREEN("绿色", 2), BLANK("白色", 3), YELLO("黄色", 4);
+	// 成员变量
+	private String name;
+	private int index;
+	// 构造方法
+	private Color(String name, int index) {
+		this.name = name;
+		this.index = index;
+	}
+	//覆盖方法
+	@Override
+	public String toString() {
+		return this.index+"_"+this.name;
+	}
+}
+
+// 5. 实现接口
+public interface Behaviour {
+	void print();
+	String getInfo();
+}
+public enum Color implements Behaviour{
+	RED("红色", 1), GREEN("绿色", 2), BLANK("白色", 3), YELLO("黄色", 4);
+	// 成员变量
+	private String name;
+	private int index;
+	// 构造方法
+	private Color(String name, int index) {
+		this.name = name;
+		this.index = index;
+	}
+//接口方法
+	@Override
+	public String getInfo() {
+		return this.name;
+	}
+	//接口方法
+	@Override
+	public void print() {
+		System.out.println(this.index+":"+this.name);
+	}
+}
+
+// 6. 使用接口组织枚举
+public interface Food {
+	enum Coffee implements Food{
+		BLACK_COFFEE,DECAF_COFFEE,LATTE,CAPPUCCINO
+	}
+	enum Dessert implements Food{
+		FRUIT, CAKE, GELATO
+	}
+}
+
+// 7. 枚举集合java.util.EnumSet和java.util.EnumMap
+// EnumSet保证集合中的元素不重复
+// EnumMap中的key是enum类型，而value则可以是任意类型
+```
+
+##**数组**
+
+关于数组的十二个最佳方法：
+
+```java
+// 1. 声明一个数组有三种方式
+int[] a = new int[3]; // 必须指定其大小 同int a[]
+int[] b = { 1, 2, 3 }; // 同 { 1, 2, 3, }
+int[] c = new int[]{ 1, 2, 3 }; // new后的[]由{}个数决定大小
+
+// 2. 输出一个数组
+int[] intArray = { 1, 2, 3 };
+String intArrayString = Arrays.toString(intArray);
+System.out.println(intArray);  // [I@7150bd4d
+System.out.println(intArrayString); // [1, 2, 3]
+// 也可通过循环输出，效率没有Arrays.toString高
+
+// 3. 从一个数组创建数组列表
+String[] stringArray = { "a", "b", "c", "d", "e" };
+ArrayList<String> arrayList = new ArrayList<String>(Arrays.asList(stringArray));
+System.out.println(arrayList);// [a, b, c, d, e]
+
+// 4. 检查一个数组是否包含某个值
+String[] stringArray = { "a", "b", "c", "d", "e" };
+boolean b = Arrays.asList(stringArray).contains("a");
+
+// 5. 连接两个数组
+int[] intArray = { 1, 2, 3, 4, 5 };
+int[] intArray2 = { 6, 7, 8, 9, 10 };
+// Apache Commons Lang library
+int[] combinedIntArray = ArrayUtils.addAll(intArray, intArray2);
+
+// 6. 声明一个内联数组（Array inline）
+method(new String[]{"a", "b", "c", "d", "e"});
+
+// 7. 把提供的数组元素放入一个字符串
+// containing the provided list of elements
+// Apache common lang
+String j = StringUtils.join(new String[] { "a", "b", "c" }, ", ");
+System.out.println(j);// a, b, c
+
+// 8. 将一个数组列表转换为数组
+String[] stringArray = { "a", "b", "c", "d", "e" };
+ArrayList<String> arrayList = new ArrayList<String>(Arrays.asList(stringArray));
+String[] stringArr = new String[arrayList.size()];
+arrayList.toArray(stringArr);
+for (String s : stringArr)
+	System.out.println(s);
+
+// 9. 将一个数组转换为集（set）
+Set<String> set = new HashSet<String>(Arrays.asList(stringArray));
+System.out.println(set);//[d, e, b, c, a]
+
+// 10. 逆向一个数组
+int[] intArray = { 1, 2, 3, 4, 5 };
+ArrayUtils.reverse(intArray);
+System.out.println(Arrays.toString(intArray));//[5, 4, 3, 2, 1]
+
+// 11. 移除数组中的元素
+int[] intArray = { 1, 2, 3, 4, 5 };
+int[] removed = ArrayUtils.removeElement(intArray, 3);//create a new array
+System.out.println(Arrays.toString(removed));
+
+// 12. 将整数转换为字节数组
+byte[] bytes = ByteBuffer.allocate(4).putInt(8).array();
+for (byte t : bytes) {
+   System.out.format("0x%x ", t);
+}
+```
+
+##**注解**
+
+1，内置的三个注解：@Override只能用在方法之上的，用来告诉别人这一个方法是改写父类的、@Deprecated建议别人不要使用旧的API，编译的时候会用产生警告信息、@SuppressWarnings可以暂时关闭警告信息。
+
+2，自定义注解时，需要使用到四个元注解（即注解的注解）：@Retention定义注解的保留策略、@Target定义注解的作用目标、@Document说明该注解将被包含在javadoc中、@Inherited说明子类可以继承父类中的该注解。
+
+```java
+import java.lang.annotation.*;
+@Documented // 此注解会包含在javadoc中
+@Target(ElementType.METHOD) // 用于方法
+@Retention(RetentionPolicy.CLASS) // 默认，注解会在class字节码文件中存在，但运行时无法获得
+public @interface Test {...}
+```
+
+##**Java I/O**
+
+1，Java中把不同的数据源与程序间的数据传输都抽象表述为"流"(Stream),java.io包中定义了多种I/O流类型实现数据I/O功能。I/O流可以分为输入流(Input Stream)和输出流(Output Stream)、节点流(Node Stream)和处理流(Processing Stream)、字符流(Character Stream)和字节流(Byte Stream)。
+
+1. 按照数据流动的方向，java流可分为输入流(Input Stream)和输出流(Output Stream)。输入流只能从中读取数据，而不能向其写出数据；输出流则只能向其写出数据,而不能从中读取数据。（除java.io.RandomAccessFile类外）
+
+2. 根据数据流所关联的是数据源还是其他数据流,可分为节点流(Node Stream)和处理流(Processing Stream)。节点流直接连接到数据源；处理流是对一个已存在的流的连接和封装，通过封装的流的功能调用实现增强的数据读/写功能，处理流并不直接连接到数据源。（处理流无法直接操作文件，应基于节点流封装）
+
+
+3. 按传输数据的"颗粒大小"划分，可分为字符流(Character Stream)和字节流(Byte Stream)。字节流以字节为单位进行数据传输，每次传送一个或多个字节；字符流以字符为单位进行数据传输，每次传送一个或多个字符。Java命名惯例:
+凡是以InputStream或OutputStream结尾的类型均为字节流，凡是以Reader或Writer结尾的均为字符流。
+
+2，Java I/O包括以下三个层次：
+
+1. File（文件特征与管理）：用于文件或者目录的描述信息，例如生成新目录，修改文件名，删除文件，判断文件所在路径等
+
+2. InputStream（二进制格式输入操作）和OuputStream（二进制格式输出操作）两个抽象类，是所有输入/输出流的父类，定义了所有输入/输出流都具有的共同特征。
+
+3. Reader（文件格式输入操作）和Writer（文件格式输出操作）两个抽象类，是基于字符的操作。由于Java中字符是采用Unicode标准，一个字符是16位，即一个字符使用两个字节来表示。为此，JAVA中引入了处理字符的流。
+
+4. RandomAccessFile（随机文件操作）：功能丰富，可以从文件的任意位置进行存取（输入输出）操作。
+
+3，常用的Java I/O流类型
+
+1）使用FileInputStream/FileOutputStream字节流实现文件的复制：FileInputStream用于读取本地文件中字节数据，FileOutputStram用于将字节数据写到文件
+
+```java
+import java.io.*;
+public class CopyFile{
+	public static void main(String[] args) {
+		try {
+			FileInputStream fis = new FileInputStream ("a.jpg");
+			FileOutputStream fos = new FileOutputStream ("temp.jpg");
+			int read = fis.read();
+			while ( read != -1 ) {
+				fos.write(read);
+				read = fis.read();
+			}
+			fis.close();
+			fos.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+```
+
+2）使用FileReader/FileWriter字符流实现文件的复制：FileReader用于以字符为单位读取文本文件，FileWriter类用于将字符数据写到文本文件中。
+
+```java
+import java.io.*;
+public class Test {
+	public static void main(String[] args) {
+		try {
+			FileReader input = new FileReader("a.txt");
+			FileWriter output = new FileWriter("temp.txt");
+			int read = input.read();
+			while ( read != -1 ) {
+				output.write(read);
+				read = input.read();
+			}
+			input.close();
+			output.close();
+		} catch (IOException e) {
+			System.out.println(e);
+		}
+	}
+}
+```
+
+3）使用BufferedReader/BufferedWriter字符处理流实现文件的复制：BufferedReader用于缓冲读取字符，BufferedWriter则是供字符的缓存写出功能。
+
+```java
+import java.io.*;
+public class Test {
+	public static void main(String[] args) {
+		try {
+			FileReader input = new FileReader("Test.java");
+			BufferedReader br = new BufferedReader(input);
+			FileWriter output = new FileWriter("temp.txt");
+			BufferedWriter bw = new BufferedWriter(output);
+			String s = br.readLine();
+			while ( s!=null ) {
+				bw.write(s);
+				bw.newLine();
+				s = br.readLine();
+			}
+			br.close();
+			bw.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
+```
+
+4）InputStreamReader封装字节输入流并从中读取字节数据,然后将之转换为字符，OutputStreamWriter按照特定的字符编码规则把字符转化为字节并写出到它所封装的字节输出流。
+
+```java
+FileInputStream fis = new FileInputStream("a.txt");
+InputStreamReader isr = new InputStreamReader(fis);
+
+FileOutputStream fos = new FileOutputStream("b.txt");
+OutputStreamWriter osw = new OutputStreamWriter(fos);
+```
+
+##**并发**
+
+并发编程可以将程序划分为多个分离的、独立的任务，这些任务通过多线程机制分别由一个与之对应的线程驱动。
+
+1，通过实现Runnable接口并重写其run()方法来定义一个任务：
+
+```java
+public class LiftOff implements Runnable {
+	protected int countDown = 10;
+	private static int taskCount = 0;
+	private final int id = taskCount++;
+
+	public LiftOff() { }
+
+	public LiftOff(int countDown) {
+		this.countDown = countDown;
+	}
+
+	public String status() {
+		return "#" + id + "(" + (countDown > 0 ? countDown : "Liftoff!") + "),";
+	}
+
+	@Override
+	public void run() {
+		while (countDown-- > 0) {
+			System.out.println(status());
+			Thread.yield(); // 该方法“建议”线程调度器进行任务切换
+		}
+	}
+}
+public class Test {
+	public static void main(String[] args) {
+		LiftOff launch = new LiftOff();
+		launch.run(); // 并没有启动一个新线程，而是使用main线程
+	}
+} /* Output:
+#0(9),#0(8),#0(7),#0(6),#0(5),#0(4),#0(3),#0(2),#0(1),#0(Liftoff!)
+*/
+```
+
+2，将Runnable对象转变为工作任务的传统方式是把它交给Thread构造器：
+
+```java
+public class BasicThreads {
+	public static void main(String[] args) {
+		Thread t = new Thread(new LiftOff());
+		t.start(); // 启动了新线程
+		System.out.println("Waiting for LiftOff");
+	}
+} /* Output:
+Waiting for LiftOff
+#0(9),#0(8),#0(7),#0(6),#0(5),#0(4),#0(3),#0(2),#0(1),#0(Liftoff!)
+*/
+```
+
+Thread类的start方法启动线程，先执行一些必须的初始化操作，后调用Runnable的run方法。此时main线程和LiftOff.run()两个线程同时执行。
+
+3，java.util.concurrent.Executor用于管理Thread对象，从而简化并发编程。
+
+```java
+public class CashedThreadPool {
+	public static void main(String[] args) {
+		ExecutorService exec = Executors.newCachedThreadPool();
+		for(int i = 0; i < 5; i++) {
+			exec.execute(new LiftOff());
+		}
+		exec.shutdown();
+	}
+}
+```
+
+可以通过ExecutorService exec = Executors.newFixedThreadPool(5);来限定有限的线程集执行所提交的任务。
+
+4，Runnable是执行工作的独立任务，它不返回任何值，若需要返回则应实现具有类型参数泛型的Callable接口。
+
+5，sleep()方法使人物中止执行给定的时间，称为休眠。调用sleep()方法可以抛出InterruptedException异常。
+
+6，可以通过Thread.currentThread()获取当前线程的对象。
+
+7，可以通过setPriority(aIntPriority)设置线程的优先级，调度器倾向于先运行优先级高的线程但不一定，一般只使用MAX_PRIORITY/NORMAL_PRIORITY/MIN_PRIORITY三个优先级。
+
+8，后台/daemon线程是指程序运行时在后台提供一种通用服务的线程，并且这种线程不是程序不可或缺的。因此当所有非后台线程结束时，程序终止，同时杀死进程中所有的后台线程；通过setDaemon()方法将一个线程设置成后台线程，通过isDaemon()方法判断一个线程是否后台线程。（后台线程创建的线程自动设置为后台线程）
+
+9，还可以通过直接继承Thread类来实现线程，Thread类本身不执行任何操作，它只是驱动赋予它的任务。
+
+10，线程具有开始（等待）、运行、挂起和停止四种不同的状态：
+
+```java
+// 开始线程
+public void start( );
+public void run( );
+
+// 挂起和唤醒线程
+public void resume( );     // 不建议使用
+public void suspend( );    // 不建议使用
+public static void sleep(long millis);
+public static void sleep(long millis, int nanos);
+
+// 终止线程
+public void stop( );       // 不建议使用
+public void interrupt( );
+
+// 得到线程状态
+public boolean isAlive( );
+public boolean isInterrupted( );
+public static boolean interrupted( );
+
+// join方法
+public void join( ) throws InterruptedException;
+```
+
+TODO: 资源共享、线程写作、死锁..
