@@ -6,9 +6,26 @@ layout: post
 
 ---
 
-* [基本数据结构](#data)
-* [操作符](#operation)
+导航
 
+* [基本数据结构](#data)
+* [操作符](#oper)
+* [控制执行流程](#flow)
+* [初始化与清理](#init)
+* [访问权限控制](#acce)
+* [复用类](#reus)
+* [接口](#inte)
+* [内部类](#inne)
+* [容器类](#coll)
+* [异常](#exce)
+* [字符串](#stri)
+* [类型信息](#type)
+* [泛型](#geri)
+* [枚举](#enum)
+* [数组](#arra)
+* [注解](#anno)
+* [Java I/0](#io)
+* [并发](#conc)
 
 <h2 id="data">基本数据类型</h2>
 
@@ -25,8 +42,8 @@ layout: post
 > 4. 静态存储：存放程序运行时一直存在的数据
 
 > 5. 常量存储：直接存放在程序代码内部，存放字符串常量和基本类型常量（public static final）
-
 > 6. 非RAM存储：如硬盘等永久存储空间，完全存活于程序之外，不受程序的任何控制。
+
 > 注：对于栈和常量池中的对象可以共享，对于堆中的对象不可以共享。栈中的数据大小和生命周期是可以确定的，当没有引用指向数据时，这个数据就会消失。堆中的对象的由垃圾回收器负责回收，因此大小和生命周期不需要确定，具有很大的灵活性。
 
 > 注2：对于字符串：其对象的引用都是存储在栈中的，如果是编译期已经创建好(直接用双引号定义的)的就存储在常量池中，如果是运行期（new出来的）才能确定的就存储在堆中。对于equals相等的字符串，在常量池中永远只有一份，在堆中有多份。
@@ -75,7 +92,7 @@ public class HelloDate {
 }
 ```
 
-<h2 id="operation">操作符</h2>
+<h2 id="oper">操作符</h2>
 
 1，赋值时，基本数据类型会直接将值复制，而类（对象）则只赋值引用，示例如下：
 
@@ -154,7 +171,7 @@ public class Test {
 
 4，Java中对于boolean类型支持的操作只有：赋予true/false值、测试其真假。除此之外，对其加减等其他任何运算都会报错。除了boolean类型外的其他基本类型都可通过类型转换转变为其他基本类型，转换过程中必须留意“窄化转换”结果，否则可能会出现编译器无法预知的严重错误。
 
-##**控制执行流程**
+<h2 id="flow">控制执行流程</h2>
 
 以下例子展示了break和continue的区别：
 
@@ -172,7 +189,7 @@ public class Test {
 */
 ```
 
-##**初始化与清理**
+<h2 id="init">初始化与清理</h2>
 
 Java尽力保证所有变量在使用前都能得到初始化，默认构造器（无参构造器）在未显示定义构造器时会自动创建，若已定义则不会自动创建。方法重载根据参数类型列表，而非返回值（会产生歧义）。**变量定义的先后顺序决定了它的初始化顺序，即使变量定义散布于方法定义之间，它们仍旧会在任何方法之前（包括构造器方法）被初始化**。例子如下：
 
@@ -221,7 +238,7 @@ f()
 
 * 6. 执行构造器。
 
-##**访问权限控制**
+<h2 id="acce">访问权限控制</h2>
 
 Java中的访问权限控制等级从大到小依次为：public、protected、包访问权限（没有关键词/可表示为friendly、默认）和private。
 
@@ -237,7 +254,7 @@ Java解释器的运行过程如下：
 
 类的访问权限总是public或包访问权限（内部类除外），如果不希望该类被访问可以把所有构造器都指定为private，此时，除了通过类内部的static成员，其他类无法直接访问该类。
 
-##**复用类**
+<h2 id="reus">复用类</h2>
 
 1，使用组合或者继承来复用类，组合是将对象引用置于新类中，继承则是面向对象的四大特性之一，优先使用组合，如果需要向上转型（派生类可以替换基类）则使用继承。
 
@@ -418,7 +435,7 @@ fd2:i4=13. INT_5=18
 
 5. 调用导出类构造器的主体。
 
-##**接口**
+<h2 id="inte">接口</h2>
 
 1, Java接口中的成员变量默认都是public,static,final类型的(都可省略)，必须被显示初始化，即接口中的成员变量为常量(大写，单词之间用"_"分隔)。Java接口中的方法默认都是public,abstract类型的(都可省略)，没有方法体，不能被实例化。
 
@@ -468,7 +485,7 @@ public interface A {
 
 * 接口中的变量默认都是public static final常量，方法都是public abstract。
 
-##**内部类**
+<h2 id="inne">内部类</h2>
 
 内部类是一个编译时的概念，一旦编译成功，就会成为完全不同的两类。对于一个名为outer的外部类和其内部定义的名为inner的内部类。编译完成后出现outer.class和outer$inner.class两类。所以内部类的成员变量/方法名可以和外部类的相同。
 
@@ -534,7 +551,7 @@ class Outter{
 }
 ```
 
-##**容器类**
+<h2 id="coll">容器类</h2>
 
 1，数组（非容器）：将数字与对象联系起来，保存类型明确的对象，可以是多维的，但是数组一旦生成其大小不能改变。
 
@@ -609,7 +626,7 @@ true
 */
 ```
 
-##**异常**
+<h2 id="exce">异常</h2>
 
 1，Throwable类是所有异常类的基类，他有两个派生类Error和Exception：Error是程序无法处理的错误，如StackOverFlow/OutOfMemoryError等，此类错误通常交给JVM处理。Exception则是程序本身可以处理的异常。
 
@@ -656,7 +673,7 @@ Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 4
 
 * finally 块：无论是否捕获或处理异常，finally块里的语句都会被执行。**当在try块或catch块中遇到return语句时，finally语句块将在方法返回之前被执行**。在以下4种特殊情况下，finally块不会被执行：在finally语句块中发生了异常；在前面的代码中用了System.exit()退出程序；程序所在的线程死亡；关闭CPU。
 
-##**字符串**
+<h2 id="stri">字符串</h2>
 
 1，Java字符串类(java.lang.String)是Java中使用最多的类，也是最为特殊的一个类。
 
@@ -742,7 +759,7 @@ true
 
 5. StringBuilder相比使用 StringBuffer 仅能获得 10%~15% 左右的性能提升，但却要冒多线程不安全的风险，因此除非对性能要求很高，否则不建议使用。
 
-##**类型信息**
+<h2 id="type">类型信息</h2>
 
 1，在java中，所有的类型转换都是在运行时进行正确性检查的。这也是RTTI/RunTime Type Information的含义：在运行时，识别一个对象的类型信息（如类名、继承的基类、实现的接口等）。传统的RTTI在**编译时**已知道了所有类型；反射机制则在程序运行时发现和使用类型信息。
 
@@ -922,7 +939,7 @@ RealObject somethingElseDynamicProxy
 */
 ```
 
-##**泛型**
+<h2 id="geri">泛型</h2>
 
 1，泛型是对Java语言的类型系统的一种扩展，以支持创建可以按类型进行参数化的类。使用泛型的动机如下：
 
@@ -982,7 +999,7 @@ static <T> void fromArrayToCollection(T[] a, Collection<T>c){
 }
 ```
 
-##**枚举**
+<h2 id="enum">枚举</h2>
 
 关于枚举的七个用法：
 
@@ -1110,7 +1127,7 @@ public interface Food {
 // EnumMap中的key是enum类型，而value则可以是任意类型
 ```
 
-##**数组**
+<h2 id="arra">数组</h2>
 
 关于数组的十二个最佳方法：
 
@@ -1180,7 +1197,7 @@ for (byte t : bytes) {
 }
 ```
 
-##**注解**
+<h2 id="anno">注解</h2>
 
 1，内置的三个注解：@Override只能用在方法之上的，用来告诉别人这一个方法是改写父类的、@Deprecated建议别人不要使用旧的API，编译的时候会用产生警告信息、@SuppressWarnings可以暂时关闭警告信息。
 
@@ -1194,7 +1211,7 @@ import java.lang.annotation.*;
 public @interface Test {...}
 ```
 
-##**Java I/O**
+<h2 id="io">Java I/O</h2>
 
 1，Java中把不同的数据源与程序间的数据传输都抽象表述为"流"(Stream),java.io包中定义了多种I/O流类型实现数据I/O功能。I/O流可以分为输入流(Input Stream)和输出流(Output Stream)、节点流(Node Stream)和处理流(Processing Stream)、字符流(Character Stream)和字节流(Byte Stream)。
 
@@ -1300,7 +1317,7 @@ FileOutputStream fos = new FileOutputStream("b.txt");
 OutputStreamWriter osw = new OutputStreamWriter(fos);
 ```
 
-##**并发**
+<h2 id="conc">并发</h2>
 
 并发编程可以将程序划分为多个分离的、独立的任务，这些任务通过多线程机制分别由一个与之对应的线程驱动。
 
