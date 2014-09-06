@@ -5,14 +5,18 @@ title: 推荐系统概述
 layout: post
 
 ---
-针对 [信息过载](http://en.wikipedia.org/wiki/Information_overload)（Information Overload）问题人们提出了两种解决方案：搜索引擎和推荐系统。两者的区别主要是搜索引擎被动接受用户输入，而推荐系统主动输出给用户。经过多年的研究和改进，以GOOGLE为首的搜索引擎已经趋向成熟，然而至今仍没有一个杀手级的推荐系统面世。
 
+* [引言](#intr)
 * [概念及定义](#defi)
 * [模型](#mode)
 	* [用户建模模块](#user)
 	* [推荐算法模块](#argi)
 * [难点与热点](#hard)
 * [相关会议](#meet)
+
+<h2 id="intr">引言</h2>
+
+针对 [信息过载](http://en.wikipedia.org/wiki/Information_overload)（Information Overload）问题人们提出了两种解决方案：搜索引擎和推荐系统。两者的区别主要是搜索引擎被动接受用户输入，而推荐系统主动输出给用户。经过多年的研究和改进，以GOOGLE为首的搜索引擎已经趋向成熟，然而至今仍没有一个杀手级的推荐系统面世。
 
 <h2 id="defi">概念及定义</h2>
 

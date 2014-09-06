@@ -5,11 +5,26 @@ title: HTML/CSS 基础知识
 layout: post
 
 ---
+
+* [HTML](#html)
+    * [术语](#term)
+    * [结构和语法](#stru)
+* [CSS](#css)
+    * [术语](#term2)
+    * [结构和语法](#stru2)
+    * [框模型](#box)
+* [代码验证](#vali)
+* [排版](#pai)
+    * [颜色](#colo)
+    * [字体](#font)
+    * [文本](#text)
+    * [列表](#list)
+
 基础知识太薄弱了，学了 [Shay Howe](http://learn.shayhowe.com/html-css/) 制作的HTML/CSS新手教程后受益匪浅，发个文章总结一下。
 
-##**HTML**
+<h2 id="html">HTML</h2>
 
-###**术语**
+<h3 id="term">术语</h3>
 
 * **Elements（元素）**：HTML文档由元素构成，元素指的是开始标签到结束标签之内的所有内容。如`<a href="//allenyip.com/">Allen Yip<a>` 表示一个链接元素。
 
@@ -17,7 +32,7 @@ layout: post
 
 * **Attributes（属性）**：为元素提供额外信息，在开始标签中以Name/Value对定义。如`href="//allenyip.com/"`
 
-###**结构和语法**
+<h3 id="stru">结构和语法</h3>
 
 ```html
 <!DOCTYPE html>
@@ -62,11 +77,11 @@ layout: post
 
 注：article, section, aside和div的区别。
 
-div与其他三个不同，一般使用div包含内容是为了对内容的样式进行修改，div属于可以在HTML文档中自由使用的非语义化标签；section通常表示为文档中的一节，可包含一个标题和一段文本；article通常表示一个文档内容的独立片段，可包含多个section；aside则表示文档中的附属信息。 
+div与其他三个不同，一般使用div包含内容是为了对内容的样式进行修改，div属于可以在HTML文档中自由使用的非语义化标签；section通常表示为文档中的一节，可包含一个标题和一段文本；article通常表示一个文档内容的独立片段，可包含多个section；aside则表示文档中的附属信息。
 
-##**CSS**
+<h2 id="css">CSS</h2>
 
-###**术语**
+<h3 id="term2">术语</h3>
 
 * **selectors（选择器）**：选择该CSS语句所要作用的元素。如div, #id, .class...
 
@@ -74,7 +89,7 @@ div与其他三个不同，一般使用div包含内容是为了对内容的样�
 
 * **values（值）**：不同属性具有不同的取值，如 #ccc, 16px...
 
-###**结构和语法**
+<h3 id="stru2">结构和语法</h3>
 
 ```css
 selector {
@@ -111,12 +126,12 @@ p {
 h1, h2, h3, h4 {
 	color: #ccc;
 }
- 
+
 /* 连写 */
 ul#stu { /* ID为stu的ul元素 */
 	padding: 0;
 }
- 
+
 /* 上下文 */
 ul#stu li { /* ID为stu的ul元素下的li元素 */
 	background: #ccc;
@@ -143,7 +158,7 @@ ul#stu li { /* ID为stu的ul元素下的li元素 */
 
 CSS重置的目的是为了防止浏览器默认样式对HTML文档进行修改，因此通常会为自己的HTML文档添加一个reset.css样式，比较出名的有 [Eric Meyers reset](http://meyerweb.com/eric/tools/css/reset/)。
 
-###**框模型**
+<h3 id="box">框模型</h3>
 
 **页面上的每个元素都是一个矩形框**。可通过margin, border, pdding, width, height等属性对其大小进行定义。计算一个元素真正的宽度和高度可采用以下公式：
 
@@ -175,17 +190,17 @@ CSS重置的目的是为了防止浏览器默认样式对HTML文档进行修改�
 
 除了浮动外也可以使用定位进行布局设置。默认的position值是static，表示元素位于普通流中；relative表示元素仍位于普通流中占据位置，而允许通过top, right, bottom和left等属性进行位置偏移设置；absolute和fixed与relative一样采用偏移机制，但此时元素已经不处于普通流中，而是相对于上一个已定位的祖先元素进行偏移。
 
-##**代码验证**
+<h3 id="vali">代码验证</h2>
 
 代码验证器可以为我们找出HTML或CSS文档中的语法错误。W3C为开发者提供了简单强大的 [HTML验证器](http://validator.w3.org/) 和 [CSS验证器](http://jigsaw.w3.org/css-validator/)。
 
-##**排版**
+<h2 id="pai">排版</h2>
 
-###**颜色**
+<h3 id="colo">颜色</h3>
 
 完整的颜色值由一个RGB组成的十六进制符号来定义，如#000000。同时也存在多种写法，如#000与#000000等价，red与#ff0000等价，也与rgb(ff, 0, 0)。
 
-###**字体**
+<h3 id="font">字体</h3>
 
 ```css
 p {
@@ -194,8 +209,8 @@ p {
 	font-style: normal; /* italic, oblique, inherit */
 	font-weight: bold;/* normal 400==normal/700==bold*
 	line-height: 20px;/* 150% usually*/
- 
-	font: italic bold 13px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; /* shorthand */	
+
+	font: italic bold 13px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif; /* shorthand */
 }
 ```
 
@@ -213,7 +228,7 @@ p {
 
 * line-height属性设置行间的距离（行高），一般设置成1.5倍行距。
 
-###**文本**
+<h3 id="text">文本</h3>
 
 ```css
 p {
@@ -241,7 +256,7 @@ p {
 
 * word-spacing属性增加或减少单词间的空白（即字间隔）。
 
-###**列表**
+<h3 id="list">列表</h3>
 
 ```html
 <ol>
@@ -277,7 +292,7 @@ p {
   <li><a href="#" title="Notifications">Notifications</a></li>
   <li><a href="#" title="Logout">Logout</a></li>
 </ul>
- 
+
 ul {
   list-style: none;
   margin: 0;
