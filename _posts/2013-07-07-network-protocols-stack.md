@@ -8,9 +8,9 @@ layout: post
 
 * [物理层](#phys)
 * [数据链路层](#link)
-* [网络](#inte)
-* [传输](#tran)
-* [应用](#appl)
+* [网络层](#inte)
+* [传输层](#tran)
+* [应用层](#appl)
 
 结合OSI和TCP/IP的五层协议栈
 
