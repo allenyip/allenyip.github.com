@@ -435,7 +435,7 @@ fd2:i4=13. INT_5=18
 
 <h2 id="inte">接口</h2>
 
-1, Java接口中的成员变量默认都是public,static,final类型的(都可省略)，必须被显示初始化，即接口中的成员变量为常量(大写，单词之间用"_"分隔)。Java接口中的方法默认都是public,abstract类型的(都可省略)，没有方法体，不能被实例化。
+1, Java接口中的成员变量默认都是public static final类型的(都可省略)，必须被显示初始化，即接口中的成员变量为常量(大写，单词之间用"_"分隔)。Java接口中的方法默认都是public,abstract类型的(都可省略)，没有方法体，不能被实例化。
 
 ```java
 public interface A {
