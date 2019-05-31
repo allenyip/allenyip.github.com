@@ -1,5 +1,5 @@
 name: Allen Yip
-markdown: redcarpet
+# markdown: redcarpet
 pygments: true
 
 paginate: 20
